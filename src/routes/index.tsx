@@ -1,26 +1,28 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroBanana from "@/assets/hero-banana.jpg";
-import workTelephone from "@/assets/work-telephone.jpg";
-import workChair from "@/assets/work-chair-pool.jpg";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { VenueMarquee } from "@/components/marquee";
 import { WorkCard } from "@/components/work-card";
+import { ContactForm } from "@/components/contact-form";
+import { works } from "@/data/works";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alison Vane — Studio" },
+      { title: "Sta — Emoghene Augusta Ademi, Visual Artist" },
       {
         name: "description",
         content:
-          "Alison Vane is a Roman contemporary artist working across sculpture, photography, and installation. Selected works, exhibitions, and studio information.",
+          "Sta (Ademi Emoghene Augusta) is a visual artist based in Benin City, Nigeria. Surreal, emotionally charged paintings of faceless figures — emotional documentation as collective witness.",
       },
-      { property: "og:title", content: "Alison Vane — Studio" },
+      {
+        property: "og:title",
+        content: "Sta — Emoghene Augusta Ademi, Visual Artist",
+      },
       {
         property: "og:description",
         content:
-          "Sculpture, photography, installation. New solo exhibition The Gravity of Levity opens Autumn 2026 at Gagosian, New York.",
+          "Selected works, exhibitions and studio inquiries. Currently developing the Hungry series.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -30,6 +32,12 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const heroWork = works.find((w) => w.slug === "not-hungry")!;
+  const preview = [
+    works.find((w) => w.slug === "ladi-kwali")!,
+    works.find((w) => w.slug === "awakening-2")!,
+  ];
+
   return (
     <div className="bg-background text-ink">
       <SiteNav />
@@ -37,33 +45,33 @@ function Home() {
       {/* HERO */}
       <section className="relative h-screen min-h-[720px] w-full overflow-hidden">
         <img
-          src={heroBanana}
-          alt="Installation view: a suspended gilded form beneath a cobalt beam in a white gallery"
-          width={1920}
-          height={1088}
+          src={heroWork.image}
+          alt={heroWork.alt}
+          width={1600}
+          height={2200}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col justify-between p-3 md:p-5 pointer-events-none">
           <div className="flex justify-between items-start">
             <span className="font-display font-extrabold text-[22vw] leading-[0.7] text-brand-yellow animate-slide-up [animation-delay:200ms]">
-              AL
+              EM
             </span>
             <span className="font-display font-extrabold text-[22vw] leading-[0.7] text-brand-blue animate-slide-up [animation-delay:400ms]">
-              IS
+              OG
             </span>
           </div>
           <div className="flex justify-between items-end">
             <span className="font-display font-extrabold text-[22vw] leading-[0.7] text-brand-blue animate-slide-up [animation-delay:600ms]">
-              ON
+              HE
             </span>
             <span className="font-display font-extrabold text-[22vw] leading-[0.7] text-brand-yellow animate-slide-up [animation-delay:800ms]">
-              VANE
+              NE
             </span>
           </div>
         </div>
         <div className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none">
           <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-white mix-blend-difference">
-            The Gravity of Levity, 2024 — Installation view
+            Not Hungry, 2026 — Hungry series
           </span>
         </div>
       </section>
@@ -74,7 +82,7 @@ function Home() {
           (01) Selected Works
         </span>
         <h2 className="font-serif italic text-5xl md:text-8xl lg:text-9xl text-ink max-w-5xl text-balance leading-[0.95]">
-          Objects that demand to be ignored.
+          Emotions read through bodies, not faces.
         </h2>
       </section>
 
@@ -82,18 +90,20 @@ function Home() {
       <section className="bg-background px-6 md:px-10 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <WorkCard
-            src={workTelephone}
-            alt="The Silent Call, 2024 — blue resin telephone melting on a marble plinth"
-            title="The Silent Call"
-            meta="2024 · Resin, Enamel"
+            slug={preview[0].slug}
+            src={preview[0].image}
+            alt={preview[0].alt}
+            title={preview[0].title}
+            meta={`${preview[0].year} · ${preview[0].medium.split("—")[0].trim()}`}
             width={1200}
             height={1600}
           />
           <WorkCard
-            src={workChair}
-            alt="Deep Seating, 2023 — yellow chair submerged in a bright blue pool"
-            title="Deep Seating"
-            meta="2023 · C-Print, Ed. of 5"
+            slug={preview[1].slug}
+            src={preview[1].image}
+            alt={preview[1].alt}
+            title={preview[1].title}
+            meta={`${preview[1].year} · ${preview[1].medium.split("—")[0].trim()}`}
             offset
             width={1200}
             height={1600}
@@ -111,79 +121,36 @@ function Home() {
 
       <VenueMarquee />
 
-      {/* EXHIBITIONS PREVIEW */}
-      <section className="px-6 md:px-10 py-24 md:py-32">
+      {/* CONTACT FORM */}
+      <section
+        id="contact"
+        className="px-6 md:px-10 py-24 md:py-32 border-t border-ink/10"
+      >
         <div className="flex items-baseline justify-between mb-12 border-b border-ink/10 pb-4">
           <span className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-brand-blue">
-            (02) Now &amp; Next
+            (02) Write, please
           </span>
           <Link
-            to="/exhibitions"
+            to="/contact"
             className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/60 hover:text-ink"
           >
-            All Exhibitions
+            Full Information →
           </Link>
         </div>
-
-        <ul className="flex flex-col">
-          {[
-            {
-              year: "2026",
-              title: "The Gravity of Levity",
-              venue: "Gagosian, New York, NY",
-              status: "Upcoming",
-              highlight: true,
-            },
-            {
-              year: "2025",
-              title: "Blue Period Redux",
-              venue: "White Cube, London, UK",
-              status: "On View",
-            },
-            {
-              year: "2025",
-              title: "Objects (Not) To Be Held",
-              venue: "Palais de Tokyo, Paris",
-              status: "",
-            },
-          ].map((e) => (
-            <li
-              key={e.title}
-              className="flex flex-col md:flex-row border-b border-ink/10 py-8 group hover:bg-brand-yellow/10 transition-colors px-2"
-            >
-              <div
-                className={
-                  "w-32 font-sans text-[10px] font-medium tracking-[0.24em] uppercase py-2 " +
-                  (e.highlight ? "text-brand-blue" : "text-neutral-400")
-                }
-              >
-                {e.year}
-              </div>
-              <div className="flex-1">
-                <h4 className="font-serif italic text-4xl md:text-5xl leading-none group-hover:pl-4 transition-all duration-500">
-                  {e.title}
-                </h4>
-                <p className="font-sans text-xs tracking-[0.24em] uppercase text-ink/60 mt-3">
-                  {e.venue}
-                </p>
-              </div>
-              <div className="w-32 text-right self-end md:self-center mt-4 md:mt-0">
-                {e.status ? (
-                  <span
-                    className={
-                      "font-sans text-[10px] uppercase font-bold border px-2 py-1 tracking-[0.16em] " +
-                      (e.highlight
-                        ? "text-brand-blue border-brand-blue"
-                        : "text-ink border-ink/40")
-                    }
-                  >
-                    {e.status}
-                  </span>
-                ) : null}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div className="md:col-span-5">
+            <h2 className="font-serif italic text-5xl md:text-7xl leading-[0.95] text-balance">
+              Say something honest.
+            </h2>
+            <p className="font-sans text-sm leading-relaxed text-ink/70 mt-6 max-w-sm">
+              Studio inquiries, exhibitions, commissions, press. Messages are
+              read personally.
+            </p>
+          </div>
+          <div className="md:col-span-7">
+            <ContactForm />
+          </div>
+        </div>
       </section>
 
       <SiteFooter />

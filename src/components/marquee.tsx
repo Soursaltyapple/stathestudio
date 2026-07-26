@@ -1,6 +1,6 @@
 export function VenueMarquee() {
   const line =
-    "Tate Modern · Venice Biennale · Gagosian NYC · Palais de Tokyo · Centre Pompidou · UCCA Beijing · Fondation Beyeler · ";
+    "Emotional Documentation · Beautiful World Theory · Faceless Figures · Ancestral Practice · Hungry Series · Benin City · ";
   return (
     <div className="border-y border-ink bg-brand-blue text-white overflow-hidden py-6">
       <div className="marquee-track font-display font-extrabold uppercase text-3xl md:text-4xl tracking-tight">

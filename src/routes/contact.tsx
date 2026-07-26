@@ -1,21 +1,25 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { ContactForm } from "@/components/contact-form";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Information — Alison Vane" },
+      { title: "Information — Sta (Emoghene Augusta Ademi)" },
       {
         name: "description",
         content:
-          "Studio, representation, press and inquiries for the practice of Alison Vane.",
+          "Studio, inquiries, and press contact for Sta (Ademi Emoghene Augusta), visual artist based in Benin City, Nigeria.",
       },
-      { property: "og:title", content: "Information — Alison Vane" },
+      {
+        property: "og:title",
+        content: "Information — Sta (Emoghene Augusta Ademi)",
+      },
       {
         property: "og:description",
         content:
-          "Studio address, gallery representation, and press contacts for Alison Vane.",
+          "Studio inquiries, exhibitions, commissions and press for the practice of Sta, based in Benin City, Nigeria.",
       },
       { property: "og:url", content: "/contact" },
     ],
@@ -63,52 +67,48 @@ function Contact() {
       </section>
 
       <section className="px-6 md:px-10 pb-16">
-        <Block label="(01) Studio" title="Studio Vane">
-          <p>Via dei Capocci, 12</p>
-          <p>00184 Roma, IT</p>
+        <Block label="(01) Studio" title="Studio Sta">
+          <p>Benin City, Nigeria</p>
           <p className="pt-3">
             <a
-              href="mailto:studio@vane.art"
+              href="mailto:stathestudio@gmail.com"
               className="underline decoration-brand-blue underline-offset-4 hover:text-brand-blue"
             >
-              studio@vane.art
+              stathestudio@gmail.com
             </a>
           </p>
         </Block>
 
-        <Block label="(02) Sales &amp; Placement" title="Gallery Representation">
-          <p>Gagosian — worldwide</p>
-          <p>White Cube — London, Hong Kong</p>
-          <p>Art Projects Asia — Tokyo</p>
-          <p className="pt-3">
+        <Block label="(02) Elsewhere" title="Instagram">
+          <p>
             <a
-              href="mailto:sales@vane.art"
+              href="https://instagram.com/staisart_studio/"
+              target="_blank"
+              rel="noreferrer"
               className="underline decoration-brand-blue underline-offset-4 hover:text-brand-blue"
             >
-              sales@vane.art
+              @staisart_studio
             </a>
           </p>
         </Block>
 
-        <Block label="(03) Press" title="Press & Interviews">
-          <p>For press inquiries, review copies, and interviews, please contact:</p>
-          <p className="pt-3">
-            <a
-              href="mailto:press@vane.art"
-              className="underline decoration-brand-blue underline-offset-4 hover:text-brand-blue"
-            >
-              press@vane.art
-            </a>
+        <Block label="(03) Inquiries" title="Send a message">
+          <p>
+            For studio inquiries, exhibitions, commissions, and press — the
+            form below opens in your mail client.
           </p>
+          <div className="pt-6">
+            <ContactForm />
+          </div>
         </Block>
 
         <div className="border-t border-ink/10 pt-16 mt-4 flex flex-col md:flex-row justify-between gap-6">
           <span className="font-display font-extrabold text-6xl md:text-8xl text-brand-yellow leading-none">
-            VANE
+            STA
           </span>
           <p className="font-sans text-xs tracking-[0.24em] uppercase text-ink/50 self-end max-w-xs text-right">
-            No unsolicited studio visits, please. Portfolio submissions are not
-            accepted.
+            Portfolio submissions are not accepted. Please write only about the
+            work.
           </p>
         </div>
       </section>

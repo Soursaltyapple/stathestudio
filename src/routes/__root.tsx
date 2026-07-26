@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alison Vane — Contemporary Artist" },
+      { title: "Sta — Emoghene Augusta Ademi, Visual Artist" },
       {
         name: "description",
         content:
-          "Studio of Alison Vane. Sculpture, photography, and installation. Represented worldwide.",
+          "Studio of Sta (Ademi Emoghene Augusta). Surreal, emotionally charged paintings — acrylic on canvas, wood and paper. Based in Benin City, Nigeria.",
       },
-      { property: "og:site_name", content: "Alison Vane" },
+      { property: "og:site_name", content: "Sta — Emoghene Augusta Ademi" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
