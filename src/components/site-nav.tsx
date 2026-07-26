@@ -5,16 +5,14 @@ export function SiteNav({ invert = false }: { invert?: boolean }) {
     <nav
       className={
         "fixed top-0 left-0 w-full z-50 flex justify-between items-start p-6 md:p-8 " +
-        (invert
-          ? "text-ink"
-          : "mix-blend-difference text-white")
+        (invert ? "text-ink" : "mix-blend-difference text-white")
       }
     >
       <Link
         to="/"
         className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase"
       >
-        Alison Vane
+        Sta — Emoghene Augusta Ademi
       </Link>
       <div className="flex flex-col gap-1 items-end font-sans text-[10px] font-medium tracking-[0.24em] uppercase">
         <Link to="/works" className="hover:text-brand-yellow transition-colors">
