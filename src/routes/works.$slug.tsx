@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { getWork, works } from "@/data/works";
+import { getWork, works, type Work } from "@/data/works";
 
 export const Route = createFileRoute("/works/$slug")({
   loader: ({ params }) => {
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/works/$slug")({
 });
 
 function WorkDetail() {
-  const { work } = Route.useLoaderData();
+  const { work } = Route.useLoaderData() as { work: Work };
   const index = works.findIndex((w) => w.slug === work.slug);
   const prev = works[(index - 1 + works.length) % works.length];
   const next = works[(index + 1) % works.length];
