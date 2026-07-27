@@ -54,26 +54,38 @@ function Bio() {
     <div className="bg-background text-ink min-h-screen">
       <SiteNav invert />
 
-      <section className="px-6 md:px-10 pt-40 pb-16 grid grid-cols-1 md:grid-cols-12 gap-8">
+      <section className="px-6 md:px-10 pt-40 pb-16 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        <div className="md:col-span-5 md:sticky md:top-32">
+          <div className="relative">
+            <img
+              src={portrait}
+              alt="Sta (Ademi Emoghene Augusta), portrait in the studio, Benin City"
+              width={1200}
+              height={1504}
+              loading="eager"
+              className="w-full aspect-[4/5] object-cover bg-neutral-100 outline outline-1 -outline-offset-1 outline-black/5"
+            />
+            <span className="absolute -top-3 -left-3 font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue bg-background px-2 py-1">
+              Portrait
+            </span>
+          </div>
+          <div className="mt-4 flex items-baseline justify-between">
+            <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+              Studio · Benin City, Nigeria
+            </p>
+            <p className="font-serif italic text-lg">Sta</p>
+          </div>
+        </div>
         <div className="md:col-span-7">
           <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue">
             Biography
           </span>
-          <h1 className="font-serif italic text-6xl md:text-8xl leading-[0.9] mt-6 text-balance">
+          <h1 className="font-serif italic text-5xl md:text-7xl leading-[0.95] mt-6 text-balance">
             The body, not the face, carries the truest record.
           </h1>
-        </div>
-        <div className="md:col-span-5 md:mt-16">
-          <img
-            src={portrait}
-            alt="Sta painting in her studio, Benin City"
-            width={1200}
-            height={1504}
-            loading="lazy"
-            className="w-full aspect-[4/5] object-cover"
-          />
-          <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 mt-3">
-            Studio · Benin City, Nigeria
+          <p className="font-serif italic text-xl md:text-2xl leading-snug text-ink/70 mt-8 max-w-xl">
+            Ademi Emoghene Augusta — a self-taught visual artist working from
+            Benin City, Nigeria.
           </p>
         </div>
       </section>

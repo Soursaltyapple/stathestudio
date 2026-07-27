@@ -1,33 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-
-type Engagement = {
-  org: string;
-  role: string;
-  year: string;
-  location: string;
-  description: string;
-};
-
-const engagements: Engagement[] = [
-  {
-    org: "HUE CREATE",
-    role: "Volunteer face-painter — Children's Day",
-    year: "TBD",
-    location: "TBD",
-    description:
-      "Painted the faces of over 100 children during a Children's Day celebration, turning a public holiday into a slow afternoon of color, patience and small mirrors held up to small faces.",
-  },
-  {
-    org: "ARTERIA",
-    role: "Volunteer artist",
-    year: "TBD",
-    location: "TBD",
-    description:
-      "Contributed studio time and hands to ARTERIA as part of the collective's ongoing volunteer artist programme.",
-  },
-];
+import { events } from "@/data/events";
 
 export const Route = createFileRoute("/community")({
   head: () => ({
@@ -74,28 +48,32 @@ function Community() {
 
       <section className="px-6 md:px-10 py-16">
         <ul className="divide-y divide-ink/10 border-b border-ink/10">
-          {engagements.map((e, i) => (
-            <li
-              key={i}
-              className="grid grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 group"
-            >
-              <div className="col-span-12 md:col-span-2 font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
-                {e.year}
-              </div>
-              <div className="col-span-12 md:col-span-7">
-                <h2 className="font-serif italic text-4xl md:text-6xl leading-[1] transition-transform duration-500 ease-out md:group-hover:translate-x-4">
-                  {e.org}
-                </h2>
-                <p className="font-sans text-sm text-ink/70 mt-3">
-                  {e.role}
-                </p>
-                <p className="font-sans text-base leading-relaxed text-ink mt-5 max-w-2xl">
-                  {e.description}
-                </p>
-              </div>
-              <div className="col-span-12 md:col-span-3 md:text-right font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
-                {e.location}
-              </div>
+          {events.map((e) => (
+            <li key={e.slug}>
+              <Link
+                to="/community/$slug"
+                params={{ slug: e.slug }}
+                className="grid grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 group"
+              >
+                <div className="col-span-12 md:col-span-2 font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
+                  {e.year}
+                </div>
+                <div className="col-span-12 md:col-span-7">
+                  <h2 className="font-serif italic text-4xl md:text-6xl leading-[1] transition-transform duration-500 ease-out md:group-hover:translate-x-4 group-hover:text-brand-blue">
+                    {e.org}
+                  </h2>
+                  <p className="font-sans text-sm text-ink/70 mt-3">{e.role}</p>
+                  <p className="font-sans text-base leading-relaxed text-ink mt-5 max-w-2xl">
+                    {e.short}
+                  </p>
+                </div>
+                <div className="col-span-12 md:col-span-3 md:text-right font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
+                  {e.location}
+                  <div className="mt-2 text-brand-blue opacity-0 md:group-hover:opacity-100 transition-opacity">
+                    View →
+                  </div>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
