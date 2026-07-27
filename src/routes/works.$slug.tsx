@@ -96,6 +96,18 @@ function WorkDetail() {
               </dt>
               <dd className="flex-1">{work.year}</dd>
             </div>
+            <div className="flex py-3">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+                Availability
+              </dt>
+              <dd className="flex-1">{work.availability ?? "Available"}</dd>
+            </div>
+            <div className="flex py-3">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+                Price
+              </dt>
+              <dd className="flex-1">{work.price ?? "Price on request"}</dd>
+            </div>
           </dl>
 
           <div className="mt-10 space-y-5 font-sans text-base leading-relaxed">
