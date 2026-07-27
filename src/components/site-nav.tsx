@@ -24,6 +24,9 @@ export function SiteNav({ invert = false }: { invert?: boolean }) {
         <Link to="/biography" className="hover:text-brand-yellow transition-colors">
           Biography
         </Link>
+        <Link to="/community" className="hover:text-brand-yellow transition-colors">
+          Community
+        </Link>
         <Link to="/contact" className="hover:text-brand-yellow transition-colors">
           Information
         </Link>

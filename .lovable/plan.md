@@ -1,46 +1,28 @@
-## Design lock
+## Two changes
 
-White base, vibrant yellow (#FFD400) and bright blue (#1E4FFF) accents, Bricolage Grotesque (display) + Instrument Serif Italic (titles) + Inter (meta). Full-image hero with the artist's name broken into corners. Composition from the chosen prototype is authoritative — do not substitute components or add sections.
+### 1. Fix images for external hosting
 
-## Routes
+**Problem.** Every artwork image is stored as a `.asset.json` pointer whose `url` is `/__l5e/assets-v1/{id}/{file}`. That path is only served by Lovable's CDN infrastructure — on an external host (Vercel, Netlify, your own server, etc.) that route returns 404, so every `<img>` breaks.
 
-- `/` — Home (hero + intro chapter + Selected Works preview + venue marquee + upcoming exhibitions preview + footer)
-- `/works` — Full Selected Works index
-- `/exhibitions` — Full exhibitions list (upcoming + past)
-- `/biography` — Bio / CV
-- `/contact` — Representation, press, inquiries
+**Fix.** Pull the binaries back into the repo as real files under `src/assets/works/` and import them through Vite so the bundler fingerprints and copies them into `dist/assets/` at build time. Every deployment target serves them correctly.
 
-Each route gets its own `head()` with unique title / description / og tags. Nav lives in `__root.tsx` with fixed `mix-blend-difference` treatment matching the prototype.
+Steps:
+1. Download each of the 13 images referenced from `src/assets/works/*.asset.json` from their current CDN URLs into `src/assets/works/*.jpg` (real binary files).
+2. Delete the `.asset.json` pointer files.
+3. Update `src/data/works.ts` to `import ladiKwali from "@/assets/works/ladi-kwali.jpg"` (etc.) — same variable names, no `.url`, just the imported string.
+4. Do the same for the studio portrait used on `/biography` and any hero/OG image references.
+5. Audit `src/routes/index.tsx`, `src/routes/biography.tsx`, `src/routes/__root.tsx`, and `SiteFooter`/`SiteNav` for any remaining `/__l5e/...` strings or `.asset.json` imports and convert them the same way.
+6. Run `bun run build` and confirm the built `dist/` contains hashed image files and no `/__l5e/` URLs remain in the output HTML/JS.
 
-## Design tokens (src/styles.css)
+Result: images resolve on any static host with no code changes per deploy target.
 
-- `--background: #ffffff`, `--foreground: #0a0a0a`
-- `--brand-yellow: #FFD400`, `--brand-blue: #1E4FFF`
-- Fonts loaded via `<link>` in `__root.tsx` head (Bricolage Grotesque 800, Instrument Serif italic, Inter 400/500)
-- Keyframes: `slide-up`, `marquee` — carried verbatim from prototype
-- No shadows, no gradients, no rounded corners beyond default
+### 2. New Community Engagements page
 
-## Sections to build (composition locked to prototype)
+- Add route `src/routes/community.tsx` with its own `head()` (unique title, description, og tags).
+- Add "Community" to the nav list in `src/components/site-nav.tsx` (and matching footer link if the footer lists routes).
+- Page content (styled to match the existing editorial layout — chapter label, italic serif headline, then engagement entries with year + org + role + short description):
+  - **HUE CREATE — Children's Day** · Volunteer face-painter for 100+ children.
+  - **ARTERIA** · Volunteer artist.
+- Leave dates, locations, and photo slots as visible placeholders you can fill in later (matching how `/exhibitions` handles TBD entries).
 
-1. **Fixed nav** — artist name left, three links stacked right, `mix-blend-difference`
-2. **Hero** — full-bleed generated artwork image, artist name broken into 4 corner glyphs (AL / IS / ON / VANE), yellow/blue alternating, staggered slide-up
-3. **Chapter break** — full-bleed yellow band, `(01) Selected Works` label + italic serif headline
-4. **Works grid** — 2-column, staggered vertical offset, 2 works on home (4 on `/works`), each with generated image + italic serif title + meta line
-5. **Marquee** — bright blue band, uppercase display type, infinite scroll of venue names
-6. **Exhibitions list** — year column + italic serif title + venue + status pill, hover shifts title right
-7. **Footer** — black band, studio address + representation + oversized yellow VANE mark
-
-## Images
-
-Generate 5 hero/work images via imagegen and import them (replace every `data-lov-image-placeholder`). Prompts from the prototype: banana hero, blue telephone sculpture, yellow chair in pool — extend with 2 more works for `/works`.
-
-## Placeholder rewrite
-
-`src/routes/index.tsx` is the template placeholder — rewrite it to the home page. No sibling route for home.
-
-## Technical notes
-
-- Font `<link>` tags go in `__root.tsx` `head()` (never `@import` in styles.css)
-- Marquee + slide-up animations declared as `@utility` in styles.css
-- All colors reference semantic tokens; no hardcoded `text-white`/`bg-black`
-- Content is static (no Cloud), artist is fictional ("Alison Vane")
+No copy/color/layout changes anywhere else.

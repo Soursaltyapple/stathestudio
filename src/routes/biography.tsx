@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portrait from "@/assets/works/portrait.jpg.asset.json";
+import portrait from "@/assets/works/portrait.jpg";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -21,8 +21,8 @@ export const Route = createFileRoute("/biography")({
         content:
           "Self-taught visual artist based in Benin City. Emotional documentation and the beautiful world theory.",
       },
-      { property: "og:image", content: portrait.url },
-      { name: "twitter:image", content: portrait.url },
+      { property: "og:image", content: portrait },
+      { name: "twitter:image", content: portrait },
       { property: "og:url", content: "/biography" },
     ],
     links: [{ rel: "canonical", href: "/biography" }],
@@ -65,7 +65,7 @@ function Bio() {
         </div>
         <div className="md:col-span-5 md:mt-16">
           <img
-            src={portrait.url}
+            src={portrait}
             alt="Sta painting in her studio, Benin City"
             width={1200}
             height={1504}
