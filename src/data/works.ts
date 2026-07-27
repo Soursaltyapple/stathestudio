@@ -21,6 +21,8 @@ export type Work = {
   alt: string;
   short: string;
   description: string[];
+  price?: string;
+  availability?: "Available" | "Sold" | "On loan" | "Reserved" | "Not for sale";
 };
 
 export const works: Work[] = [
