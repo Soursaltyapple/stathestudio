@@ -16,6 +16,7 @@ import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BiographyRouteImport } from './routes/biography'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
 
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
@@ -52,33 +53,41 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const CommunitySlugRoute = CommunitySlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CommunityRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/biography': typeof BiographyRoute
-  '/community': typeof CommunityRoute
+  '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/works': typeof WorksRouteWithChildren
+  '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/biography': typeof BiographyRoute
-  '/community': typeof CommunityRoute
+  '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/works': typeof WorksRouteWithChildren
+  '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/biography': typeof BiographyRoute
-  '/community': typeof CommunityRoute
+  '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/works': typeof WorksRouteWithChildren
+  '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/exhibitions'
     | '/works'
+    | '/community/$slug'
     | '/works/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/exhibitions'
     | '/works'
+    | '/community/$slug'
     | '/works/$slug'
   id:
     | '__root__'
@@ -108,13 +119,14 @@ export interface FileRouteTypes {
     | '/contact'
     | '/exhibitions'
     | '/works'
+    | '/community/$slug'
     | '/works/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BiographyRoute: typeof BiographyRoute
-  CommunityRoute: typeof CommunityRoute
+  CommunityRoute: typeof CommunityRouteWithChildren
   ContactRoute: typeof ContactRoute
   ExhibitionsRoute: typeof ExhibitionsRoute
   WorksRoute: typeof WorksRouteWithChildren
@@ -171,8 +183,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/community/$slug': {
+      id: '/community/$slug'
+      path: '/$slug'
+      fullPath: '/community/$slug'
+      preLoaderRoute: typeof CommunitySlugRouteImport
+      parentRoute: typeof CommunityRoute
+    }
   }
 }
+
+interface CommunityRouteChildren {
+  CommunitySlugRoute: typeof CommunitySlugRoute
+}
+
+const CommunityRouteChildren: CommunityRouteChildren = {
+  CommunitySlugRoute: CommunitySlugRoute,
+}
+
+const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
+  CommunityRouteChildren,
+)
 
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
@@ -187,7 +218,7 @@ const WorksRouteWithChildren = WorksRoute._addFileChildren(WorksRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BiographyRoute: BiographyRoute,
-  CommunityRoute: CommunityRoute,
+  CommunityRoute: CommunityRouteWithChildren,
   ContactRoute: ContactRoute,
   ExhibitionsRoute: ExhibitionsRoute,
   WorksRoute: WorksRouteWithChildren,
@@ -195,3 +226,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
