@@ -1,14 +1,14 @@
-import ladiKwali from "@/assets/works/ladi-kwali.jpg.asset.json";
-import notHungry from "@/assets/works/not-hungry.jpg.asset.json";
-import theSelf from "@/assets/works/the-self.jpg.asset.json";
-import isItCoolToWorry from "@/assets/works/is-it-cool-to-worry.jpg.asset.json";
-import awakening2 from "@/assets/works/awakening-2.jpg.asset.json";
-import elonia from "@/assets/works/elonia.jpg.asset.json";
-import spoonsAndForks from "@/assets/works/spoons-and-forks.jpg.asset.json";
-import awakening from "@/assets/works/awakening.jpg.asset.json";
-import selfPortrait1 from "@/assets/works/self-portrait-1.jpg.asset.json";
-import selfPortrait2 from "@/assets/works/self-portrait-2.jpg.asset.json";
-import eyes from "@/assets/works/eyes.jpg.asset.json";
+import ladiKwali from "@/assets/works/ladi-kwali.jpg";
+import notHungry from "@/assets/works/not-hungry.jpg";
+import theSelf from "@/assets/works/the-self.jpg";
+import isItCoolToWorry from "@/assets/works/is-it-cool-to-worry.jpg";
+import awakening2 from "@/assets/works/awakening-2.jpg";
+import elonia from "@/assets/works/elonia.jpg";
+import spoonsAndForks from "@/assets/works/spoons-and-forks.jpg";
+import awakening from "@/assets/works/awakening.jpg";
+import selfPortrait1 from "@/assets/works/self-portrait-1.jpg";
+import selfPortrait2 from "@/assets/works/self-portrait-2.jpg";
+import eyes from "@/assets/works/eyes.jpg";
 
 export type Work = {
   slug: string;
@@ -30,7 +30,7 @@ export const works: Work[] = [
     year: "2025",
     medium: "Acrylic on canvas",
     dimensions: "41cm × 86cm",
-    image: ladiKwali.url,
+    image: ladiKwali,
     alt: "Painting of Ladi Kwali and another artist working at a table",
     short: "Two women, two eras, one table.",
     description: [
@@ -44,7 +44,7 @@ export const works: Work[] = [
     year: "2026",
     medium: "Acrylic on canvas — Hungry series",
     dimensions: "64cm × 88cm",
-    image: notHungry.url,
+    image: notHungry,
     alt: "A figure sitting at a table with a feast, facing the ocean",
     short: "A feast that cannot answer the hunger.",
     description: [
@@ -57,7 +57,7 @@ export const works: Work[] = [
     year: "2025",
     medium: "Acrylic on canvas",
     dimensions: "41cm × 86cm",
-    image: theSelf.url,
+    image: theSelf,
     alt: "A reclining figure with a pot-like head against a landscape, framed in ornate gold",
     short: "Creative chi, reclining.",
     description: [
@@ -71,7 +71,7 @@ export const works: Work[] = [
     year: "2024",
     medium: "Acrylic paint on wood",
     dimensions: "29cm × 23cm",
-    image: isItCoolToWorry.url,
+    image: isItCoolToWorry,
     alt: "Two cloud-headed figures sit on a bench with flowers in the foreground",
     short: "Small hands holding a whole community upright.",
     description: [
@@ -85,7 +85,7 @@ export const works: Work[] = [
     year: "2025",
     medium: "Acrylic on canvas — large format remake of Awakening (2024)",
     dimensions: "97cm × 122cm",
-    image: awakening2.url,
+    image: awakening2,
     alt: "A figure nestled inside the layers of a red onion",
     short: "Necessary isolation, beginning to unfurl.",
     description: [
@@ -99,7 +99,7 @@ export const works: Work[] = [
     year: "2025",
     medium: "Acrylic on canvas",
     dimensions: "29cm × 23cm",
-    image: elonia.url,
+    image: elonia,
     alt: "A figure in a can, a glowing ethereal figure, and symbolic elements in a landscape",
     short: "The freedom people can no longer accept.",
     description: [
@@ -113,7 +113,7 @@ export const works: Work[] = [
     year: "2025",
     medium: "Acrylic paint on paper",
     dimensions: "29cm × 42cm",
-    image: spoonsAndForks.url,
+    image: spoonsAndForks,
     alt: "Five elongated hands standing as utensils in a glass container",
     short: "Our own spoons and forks.",
     description: [
@@ -127,7 +127,7 @@ export const works: Work[] = [
     year: "2024",
     medium: "Acrylic on paper",
     dimensions: "42cm × 29cm",
-    image: awakening.url,
+    image: awakening,
     alt: "A figure curled inside an onion surrounded by discarded layers",
     short: "The cost of a survivable self.",
     description: [
@@ -141,7 +141,7 @@ export const works: Work[] = [
     year: "2024",
     medium: "Pencil on paper",
     dimensions: "23cm × 23cm",
-    image: selfPortrait1.url,
+    image: selfPortrait1,
     alt: "Pencil drawing of a child's face with hair in knots and sunglasses",
     short: "Looking back at a child who did not know yet.",
     description: [
@@ -156,7 +156,7 @@ export const works: Work[] = [
     year: "2024",
     medium: "Digital: oil paint, pencil, charcoal, chalk",
     dimensions: "23cm × 23cm",
-    image: selfPortrait2.url,
+    image: selfPortrait2,
     alt: "Digital self-portrait against a blue water-like background",
     short: "The face the front-facing camera keeps finding.",
     description: [
@@ -169,7 +169,7 @@ export const works: Work[] = [
     year: "2024",
     medium: "Pencil on paper",
     dimensions: "42cm × 14cm",
-    image: eyes.url,
+    image: eyes,
     alt: "Close-up pencil drawing of a pair of open, unguarded eyes",
     short: "The moment before the lesson lands.",
     description: [
