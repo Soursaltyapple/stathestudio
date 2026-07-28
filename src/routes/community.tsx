@@ -53,7 +53,7 @@ function Community() {
               <Link
                 to="/community/$slug"
                 params={{ slug: e.slug }}
-                className="grid grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 group"
+                className="grid grid-cols-12 gap-4 md:gap-8 py-10 md:py-14 group cursor-pointer transition-all duration-500 ease-out hover:bg-ink/[0.02] hover:-translate-y-0.5 -mx-4 md:-mx-6 px-4 md:px-6"
               >
                 <div className="col-span-12 md:col-span-2 font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
                   {e.year}
