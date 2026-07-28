@@ -24,10 +24,11 @@ export function WorkCard({
       to="/works/$slug"
       params={{ slug }}
       className={
-        "block group space-y-6 " + (offset ? "md:mt-48" : "")
+        "block group space-y-6 cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-1 " +
+        (offset ? "md:mt-48" : "")
       }
     >
-      <div className="overflow-hidden bg-neutral-50 outline outline-1 -outline-offset-1 outline-black/5">
+      <div className="overflow-hidden bg-neutral-50 outline outline-1 -outline-offset-1 outline-black/5 transition-shadow duration-500 group-hover:shadow-2xl">
         <img
           src={src}
           alt={alt}
