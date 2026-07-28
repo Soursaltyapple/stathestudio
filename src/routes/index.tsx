@@ -33,10 +33,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const heroWork = works.find((w) => w.slug === "not-hungry")!;
-  const preview = [
-    works.find((w) => w.slug === "ladi-kwali")!,
-    works.find((w) => w.slug === "awakening-2")!,
-  ];
+  const gridWorks = works.filter((w) => w.slug !== "not-hungry");
 
   return (
     <div className="bg-background text-ink">
@@ -44,13 +41,20 @@ function Home() {
 
       {/* HERO */}
       <section className="relative h-screen min-h-[720px] w-full overflow-hidden">
-        <img
-          src={heroWork.image}
-          alt={heroWork.alt}
-          width={1600}
-          height={2200}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <Link
+          to="/works/$slug"
+          params={{ slug: heroWork.slug }}
+          className="absolute inset-0 block group"
+          aria-label={`Open ${heroWork.title}`}
+        >
+          <img
+            src={heroWork.image}
+            alt={heroWork.alt}
+            width={1600}
+            height={2200}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          />
+        </Link>
         <div className="absolute inset-0 flex flex-col justify-between p-3 md:p-5 pointer-events-none">
           <div className="flex justify-between items-start">
             <span className="font-display font-extrabold text-[22vw] leading-[0.7] text-brand-yellow animate-slide-up [animation-delay:200ms]">
@@ -86,28 +90,22 @@ function Home() {
         </h2>
       </section>
 
-      {/* WORKS PREVIEW */}
+      {/* WORKS GRID — all clickable */}
       <section className="bg-background px-6 md:px-10 py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          <WorkCard
-            slug={preview[0].slug}
-            src={preview[0].image}
-            alt={preview[0].alt}
-            title={preview[0].title}
-            meta={`${preview[0].year} · ${preview[0].medium.split("—")[0].trim()}`}
-            width={1200}
-            height={1600}
-          />
-          <WorkCard
-            slug={preview[1].slug}
-            src={preview[1].image}
-            alt={preview[1].alt}
-            title={preview[1].title}
-            meta={`${preview[1].year} · ${preview[1].medium.split("—")[0].trim()}`}
-            offset
-            width={1200}
-            height={1600}
-          />
+          {gridWorks.map((w, i) => (
+            <WorkCard
+              key={w.slug}
+              slug={w.slug}
+              src={w.image}
+              alt={w.alt}
+              title={w.title}
+              meta={`${w.year} · ${w.medium.split("—")[0].trim()}`}
+              offset={i % 2 === 1}
+              width={1200}
+              height={1600}
+            />
+          ))}
         </div>
         <div className="mt-24 flex justify-end">
           <Link
@@ -118,6 +116,7 @@ function Home() {
           </Link>
         </div>
       </section>
+
 
       <VenueMarquee />
 
