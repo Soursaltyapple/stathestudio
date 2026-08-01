@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { applyTheme, readStoredTheme, THEMES, THEME_STORAGE_KEY, type Theme } from "@/lib/theme";
+import {
+  applyTheme,
+  readStoredTheme,
+  THEMES,
+  THEME_STORAGE_KEY,
+  type Theme,
+} from "@/lib/theme";
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>("original");
@@ -27,7 +33,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       role="group"
       aria-label="Colour theme"
       className={
-        "flex items-center gap-1 border border-current/40 p-0.5 " + className
+        "flex items-center gap-0.5 border border-ink/40 bg-background/90 p-0.5 backdrop-blur-sm " +
+        className
       }
     >
       {THEMES.map((t) => {
@@ -40,13 +47,13 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             aria-pressed={active}
             aria-label={t.label}
             className={
-              "font-sans text-[10px] font-medium tracking-[0.16em] uppercase px-2 py-1.5 min-h-8 transition-colors " +
+              "font-sans text-[10px] font-medium tracking-[0.16em] uppercase px-2.5 py-2 min-h-9 transition-colors " +
               (active
-                ? "bg-current text-background"
-                : "opacity-80 hover:opacity-100 underline-offset-4 hover:underline")
+                ? "bg-ink text-background"
+                : "text-ink hover:bg-brand-yellow")
             }
           >
-            <span className={active ? "mix-blend-normal" : undefined}>{t.short}</span>
+            {t.short}
           </button>
         );
       })}
