@@ -156,3 +156,9 @@
   width: max-content;
   animation: lv-marquee 32s linear infinite;
 }
+
+/* Keeps the large yellow wordmark legible (AA large-text) without changing the palette */
+@utility wordmark-outline {
+  -webkit-text-stroke: 2px var(--color-ink);
+  paint-order: stroke fill;
+}

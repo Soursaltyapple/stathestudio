@@ -103,7 +103,7 @@ function Contact() {
         </Block>
 
         <div className="border-t border-ink/10 pt-16 mt-4 flex flex-col md:flex-row justify-between gap-6">
-          <span className="font-display font-extrabold text-6xl md:text-8xl text-brand-yellow leading-none">
+          <span className="wordmark-outline font-display font-extrabold text-6xl md:text-8xl text-brand-yellow leading-none">
             STA
           </span>
           <p className="font-sans text-xs tracking-[0.24em] uppercase text-ink/70 self-end max-w-xs text-right">
