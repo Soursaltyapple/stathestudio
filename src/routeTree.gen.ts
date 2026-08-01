@@ -16,6 +16,7 @@ import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BiographyRouteImport } from './routes/biography'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksIndexRouteImport } from './routes/works.index'
+import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
 import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
 
@@ -54,6 +55,11 @@ const WorksIndexRoute = WorksIndexRouteImport.update({
   path: '/',
   getParentRoute: () => WorksRoute,
 } as any)
+const CommunityIndexRoute = CommunityIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CommunityRoute,
+} as any)
 const WorksSlugRoute = WorksSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -74,16 +80,17 @@ export interface FileRoutesByFullPath {
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/community/': typeof CommunityIndexRoute
   '/works/': typeof WorksIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/biography': typeof BiographyRoute
-  '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRoute
   '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/community': typeof CommunityIndexRoute
   '/works': typeof WorksIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +103,7 @@ export interface FileRoutesById {
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/works/$slug': typeof WorksSlugRoute
+  '/community/': typeof CommunityIndexRoute
   '/works/': typeof WorksIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,16 +117,17 @@ export interface FileRouteTypes {
     | '/works'
     | '/community/$slug'
     | '/works/$slug'
+    | '/community/'
     | '/works/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/biography'
-    | '/community'
     | '/contact'
     | '/exhibitions'
     | '/community/$slug'
     | '/works/$slug'
+    | '/community'
     | '/works'
   id:
     | '__root__'
@@ -130,6 +139,7 @@ export interface FileRouteTypes {
     | '/works'
     | '/community/$slug'
     | '/works/$slug'
+    | '/community/'
     | '/works/'
   fileRoutesById: FileRoutesById
 }
@@ -193,6 +203,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksIndexRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/community/': {
+      id: '/community/'
+      path: '/'
+      fullPath: '/community/'
+      preLoaderRoute: typeof CommunityIndexRouteImport
+      parentRoute: typeof CommunityRoute
+    }
     '/works/$slug': {
       id: '/works/$slug'
       path: '/$slug'
@@ -212,10 +229,12 @@ declare module '@tanstack/react-router' {
 
 interface CommunityRouteChildren {
   CommunitySlugRoute: typeof CommunitySlugRoute
+  CommunityIndexRoute: typeof CommunityIndexRoute
 }
 
 const CommunityRouteChildren: CommunityRouteChildren = {
   CommunitySlugRoute: CommunitySlugRoute,
+  CommunityIndexRoute: CommunityIndexRoute,
 }
 
 const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
