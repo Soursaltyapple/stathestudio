@@ -106,7 +106,7 @@ function Contact() {
           <span className="font-display font-extrabold text-6xl md:text-8xl text-brand-yellow leading-none">
             STA
           </span>
-          <p className="font-sans text-xs tracking-[0.24em] uppercase text-ink/50 self-end max-w-xs text-right">
+          <p className="font-sans text-xs tracking-[0.24em] uppercase text-ink/70 self-end max-w-xs text-right">
             Portfolio submissions are not accepted. Please write only about the
             work.
           </p>

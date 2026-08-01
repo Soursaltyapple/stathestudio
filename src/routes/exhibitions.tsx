@@ -91,7 +91,7 @@ function Row({
         </p>
       </div>
       <div className="w-24 text-right self-end md:self-center mt-3 md:mt-0">
-        <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-ink/50">
+        <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-ink/70">
           {kind}
         </span>
       </div>
@@ -118,7 +118,7 @@ function Exhibitions() {
           <h2 className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-brand-blue">
             Upcoming
           </h2>
-          <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-ink/40">
+          <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-ink/70">
             2026 →
           </span>
         </div>
@@ -134,7 +134,7 @@ function Exhibitions() {
           <h2 className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase">
             Past
           </h2>
-          <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-ink/40">
+          <span className="font-sans text-[10px] uppercase tracking-[0.24em] text-ink/70">
             ← 2019
           </span>
         </div>

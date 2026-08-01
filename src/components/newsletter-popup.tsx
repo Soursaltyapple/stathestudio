@@ -166,7 +166,7 @@ export function NewsletterPopup({
               <div>
                 <label
                   htmlFor="nl-name"
-                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 mb-2"
+                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 mb-2"
                 >
                   Name
                 </label>
@@ -185,7 +185,7 @@ export function NewsletterPopup({
               <div>
                 <label
                   htmlFor="nl-email"
-                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 mb-2"
+                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 mb-2"
                 >
                   Email Address
                 </label>
@@ -208,7 +208,7 @@ export function NewsletterPopup({
                 <button
                   type="button"
                   onClick={dismiss}
-                  className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 hover:text-ink"
+                  className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 hover:text-ink"
                 >
                   Not now
                 </button>

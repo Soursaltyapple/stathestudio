@@ -79,31 +79,31 @@ function WorkDetail() {
 
           <dl className="mt-10 border-t border-ink/10 divide-y divide-ink/10 font-sans text-sm">
             <div className="flex py-3">
-              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
                 Medium
               </dt>
               <dd className="flex-1">{work.medium}</dd>
             </div>
             <div className="flex py-3">
-              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
                 Dimensions
               </dt>
               <dd className="flex-1">{work.dimensions}</dd>
             </div>
             <div className="flex py-3">
-              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
                 Year
               </dt>
               <dd className="flex-1">{work.year}</dd>
             </div>
             <div className="flex py-3">
-              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
                 Availability
               </dt>
               <dd className="flex-1">{work.availability ?? "Available"}</dd>
             </div>
             <div className="flex py-3">
-              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+              <dt className="w-32 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
                 Price
               </dt>
               <dd className="flex-1">{work.price ?? "Price on request"}</dd>
@@ -133,7 +133,7 @@ function WorkDetail() {
             <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue">
               Additional Views
             </span>
-            <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/40">
+            <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
               {String(gallery.length).padStart(2, "0")}
             </span>
           </div>

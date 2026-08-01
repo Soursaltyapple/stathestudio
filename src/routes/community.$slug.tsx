@@ -73,25 +73,25 @@ function EventDetail() {
       <section className="px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
         <dl className="md:col-span-4 border-t border-ink/10 divide-y divide-ink/10 font-sans text-sm h-fit">
           <div className="flex py-3">
-            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
               Role
             </dt>
             <dd className="flex-1">{event.role}</dd>
           </div>
           <div className="flex py-3">
-            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
               Date
             </dt>
             <dd className="flex-1">{event.date}</dd>
           </div>
           <div className="flex py-3">
-            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
               Location
             </dt>
             <dd className="flex-1">{event.location}</dd>
           </div>
           <div className="flex py-3">
-            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-0.5">
+            <dt className="w-28 text-[10px] tracking-[0.24em] uppercase text-ink/70 pt-0.5">
               Organisation
             </dt>
             <dd className="flex-1">{event.org}</dd>
@@ -110,7 +110,7 @@ function EventDetail() {
           <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue">
             Photo Gallery
           </span>
-          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/40">
+          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
             {String(event.gallery.length).padStart(2, "0")}
           </span>
         </div>
@@ -133,7 +133,7 @@ function EventDetail() {
                 key={i}
                 className="aspect-[4/3] bg-neutral-100 outline outline-1 -outline-offset-1 outline-black/5 flex items-center justify-center"
               >
-                <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/40">
+                <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
                   Photo · to follow
                 </span>
               </div>

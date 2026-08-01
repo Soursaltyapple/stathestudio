@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="bg-ink text-white px-6 md:px-10 py-16">
       <div className="flex flex-col md:flex-row justify-between gap-12">
         <div className="max-w-xs space-y-4">
-          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/40">
+          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/70">
             Studio
           </div>
           <p className="font-sans text-sm leading-relaxed text-white/80">
@@ -16,7 +16,7 @@ export function SiteFooter() {
         </div>
 
         <div className="max-w-xs space-y-4">
-          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/40">
+          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/70">
             Contact
           </div>
           <p className="font-sans text-sm leading-relaxed text-white/80">
@@ -30,7 +30,7 @@ export function SiteFooter() {
         </div>
 
         <div className="max-w-xs space-y-4">
-          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/40">
+          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/70">
             Elsewhere
           </div>
           <ul className="font-sans text-sm leading-relaxed text-white/80 space-y-1">
@@ -70,7 +70,7 @@ export function SiteFooter() {
           </span>
         </div>
       </div>
-      <div className="mt-16 pt-6 border-t border-white/10 flex justify-between text-[10px] uppercase tracking-[0.24em] text-white/30">
+      <div className="mt-16 pt-6 border-t border-white/10 flex justify-between text-[10px] uppercase tracking-[0.24em] text-white/70">
         <span>© 2026 Studio Sta</span>
         <span>All images courtesy of the artist</span>
       </div>

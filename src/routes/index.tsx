@@ -82,7 +82,7 @@ function Home() {
 
       {/* CHAPTER BREAK */}
       <section className="bg-brand-yellow px-6 md:px-10 py-24 md:py-32 flex flex-col md:flex-row items-baseline gap-6 md:gap-12">
-        <span className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-ink/50 shrink-0">
+        <span className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-ink/70 shrink-0">
           (01) Selected Works
         </span>
         <h2 className="font-serif italic text-5xl md:text-8xl lg:text-9xl text-ink max-w-5xl text-balance leading-[0.95]">
