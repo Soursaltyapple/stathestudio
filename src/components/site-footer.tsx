@@ -1,3 +1,5 @@
+import weDirectoryLogo from "@/assets/wedirectory-logo.svg";
+
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-white px-6 md:px-10 py-16">
