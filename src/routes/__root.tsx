@@ -114,6 +114,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
       </head>
       <body>
         {children}
@@ -128,9 +129,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-ink focus:text-background focus:px-4 focus:py-3 focus:font-sans focus:text-xs focus:tracking-[0.2em] focus:uppercase"
+      >
+        Skip to main content
+      </a>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <main id="main-content">
+        <Outlet />
+      </main>
       <NewsletterPopup />
     </QueryClientProvider>
   );
 }
+
