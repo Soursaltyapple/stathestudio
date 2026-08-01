@@ -63,6 +63,11 @@ function EventDetail() {
         <p className="font-serif italic text-2xl md:text-3xl leading-snug text-ink/70 mt-6 max-w-3xl">
           {event.short}
         </p>
+        <img
+          src={event.cover}
+          alt={`${event.org} — ${event.title}`}
+          className="w-full mt-12 aspect-[16/9] object-cover bg-neutral-100 outline outline-1 -outline-offset-1 outline-black/5"
+        />
       </section>
 
       <section className="px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">

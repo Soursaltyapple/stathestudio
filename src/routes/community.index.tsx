@@ -68,6 +68,14 @@ function Community() {
                   </p>
                 </div>
                 <div className="col-span-12 md:col-span-3 md:text-right font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 pt-2">
+                  <div className="overflow-hidden mb-4 bg-neutral-100 outline outline-1 -outline-offset-1 outline-black/5">
+                    <img
+                      src={e.cover}
+                      alt={`${e.org} — ${e.title}`}
+                      loading="lazy"
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    />
+                  </div>
                   {e.location}
                   <div className="mt-2 text-brand-blue opacity-0 md:group-hover:opacity-100 transition-opacity">
                     View →
