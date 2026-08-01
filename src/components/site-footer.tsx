@@ -1,3 +1,5 @@
+import weDirectoryLogo from "@/assets/wedirectory-logo.svg";
+
 export function SiteFooter() {
   return (
     <footer className="bg-ink text-white px-6 md:px-10 py-16">
@@ -43,6 +45,23 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
+          <a
+            href="https://we.directory/stathestudio-lovable"
+            target="_blank"
+            rel="noopener"
+            className="group block pt-4 border-t border-white/10"
+            aria-label="Featured on WeDirectory — best talents and brands"
+          >
+            <img
+              src={weDirectoryLogo}
+              alt="WeDirectory"
+              loading="lazy"
+              className="h-7 w-auto opacity-80 transition-opacity group-hover:opacity-100"
+            />
+            <span className="mt-3 block font-sans text-[10px] tracking-[0.16em] uppercase text-white/50 group-hover:text-brand-yellow transition-colors">
+              Featured on WeDirectory — best talents and brands
+            </span>
+          </a>
         </div>
 
         <div className="flex items-end">

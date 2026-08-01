@@ -1,3 +1,6 @@
+import hueCreate1 from "@/assets/events/hue-create-1.jpg";
+import arteria1 from "@/assets/events/arteria-1.jpg";
+
 export type Event = {
   slug: string;
   org: string;
@@ -8,6 +11,7 @@ export type Event = {
   location: string;
   short: string;
   description: string[];
+  cover: string;
   gallery: string[];
 };
 
@@ -26,7 +30,8 @@ export const events: Event[] = [
       "Volunteered with HUE CREATE for their Children's Day celebration, hand-painting the faces of over one hundred children across a single afternoon.",
       "The engagement turned a public holiday into an extended studio held in the open — every face a small, temporary canvas, every child a brief collaborator.",
     ],
-    gallery: [],
+    cover: hueCreate1,
+    gallery: [hueCreate1],
   },
   {
     slug: "arteria",
@@ -37,11 +42,13 @@ export const events: Event[] = [
     date: "TBD",
     location: "TBD",
     short:
-      "Studio time and hands contributed to ARTERIA's ongoing volunteer artist programme.",
+      "Studio time and hands contributed to ARTERIA's ongoing volunteer artist programme — including a collaborative outdoor mural.",
     description: [
       "Contributed as a volunteer artist within ARTERIA's ongoing programme — offering studio time, hands and quiet collaboration on the collective's projects.",
+      "Among them, a large collaborative mural painted outdoors with other artists and passers-by: sunrise, baobab, and figures at work, built panel by panel over the course of the day.",
     ],
-    gallery: [],
+    cover: arteria1,
+    gallery: [arteria1],
   },
 ];
 
