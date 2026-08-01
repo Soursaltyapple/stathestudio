@@ -31,6 +31,74 @@
   --color-accent-foreground: var(--color-ink);
 }
 
+/* ---------- Alternate themes (original palette untouched) ---------- */
+.theme-dark {
+  --color-background: #0b0b0c;
+  --color-foreground: #f4f4f5;
+  --color-ink: #f4f4f5;
+  --color-paper: #0b0b0c;
+  --color-brand-yellow: #ffd400;
+  --color-brand-blue: #8fb0ff;
+  --color-border: #f4f4f51f;
+  --color-input: #f4f4f51f;
+  --color-muted: #17171a;
+  --color-muted-foreground: #b3b3b8;
+}
+
+.theme-contrast {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-ink: #ffffff;
+  --color-paper: #000000;
+  --color-brand-yellow: #ffff00;
+  --color-brand-blue: #7fdbff;
+  --color-border: #ffffff;
+  --color-input: #ffffff;
+  --color-muted: #000000;
+  --color-muted-foreground: #ffffff;
+}
+
+/* Surfaces that are intentionally dark in the original design need to stay
+   readable when --color-ink flips to a light value. */
+.theme-dark .bg-ink,
+.theme-contrast .bg-ink {
+  background-color: #000000;
+}
+.theme-dark .bg-brand-blue,
+.theme-contrast .bg-brand-blue {
+  background-color: #10265c;
+}
+.theme-contrast .bg-brand-blue {
+  background-color: #000000;
+}
+.theme-dark .bg-brand-yellow,
+.theme-contrast .bg-brand-yellow {
+  color: #0a0a0a;
+}
+.theme-dark .bg-neutral-50,
+.theme-dark .bg-neutral-100,
+.theme-contrast .bg-neutral-50,
+.theme-contrast .bg-neutral-100 {
+  background-color: #17171a;
+}
+.theme-dark .text-neutral-500,
+.theme-dark .text-neutral-600,
+.theme-contrast .text-neutral-500,
+.theme-contrast .text-neutral-600 {
+  color: #c9c9cf;
+}
+.theme-dark .bg-brand-yellow *,
+.theme-contrast .bg-brand-yellow * {
+  color: #0a0a0a;
+}
+.theme-contrast a,
+.theme-contrast button {
+  text-underline-offset: 3px;
+}
+.theme-contrast a:hover {
+  text-decoration: underline;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -42,7 +110,28 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-blue);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  .theme-contrast :focus-visible {
+    outline: 3px solid #ffff00;
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 
 @keyframes lv-slide-up {
   from {

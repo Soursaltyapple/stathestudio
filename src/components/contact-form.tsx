@@ -32,7 +32,7 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="space-y-6 max-w-2xl" noValidate>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <label className="block">
-          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
             Name
           </span>
           <input
@@ -45,7 +45,7 @@ export function ContactForm() {
           />
         </label>
         <label className="block">
-          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+          <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
             Email
           </span>
           <input
@@ -60,7 +60,7 @@ export function ContactForm() {
       </div>
 
       <label className="block">
-        <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+        <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
           Subject
         </span>
         <input
@@ -69,12 +69,12 @@ export function ContactForm() {
           onChange={(e) => setSubject(e.target.value)}
           maxLength={120}
           placeholder="Studio inquiry"
-          className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-brand-blue outline-none py-2 font-serif italic text-2xl md:text-3xl leading-none placeholder:text-ink/25"
+          className="mt-2 w-full bg-transparent border-b border-ink/30 focus:border-brand-blue outline-none py-2 font-serif italic text-2xl md:text-3xl leading-none placeholder:text-ink/55"
         />
       </label>
 
       <label className="block">
-        <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+        <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
           Message
         </span>
         <textarea
@@ -94,7 +94,7 @@ export function ContactForm() {
       ) : null}
 
       <div className="flex items-center justify-between gap-6 pt-2">
-        <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/40">
+        <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
           {sent
             ? "Opening your mail client…"
             : "Opens in your mail client · stathestudio@gmail.com"}

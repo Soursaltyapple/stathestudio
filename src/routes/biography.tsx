@@ -70,7 +70,7 @@ function Bio() {
             </span>
           </div>
           <div className="mt-4 flex items-baseline justify-between">
-            <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50">
+            <p className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70">
               Studio · Benin City, Nigeria
             </p>
             <p className="font-serif italic text-lg">Sta</p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * NewsletterPopup
@@ -31,6 +31,7 @@ export function NewsletterPopup({
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const endpoint =
     webhookUrl ??
@@ -68,6 +69,37 @@ export function NewsletterPopup({
       /* ignore */
     }
   }
+
+  // Focus management: move focus into the dialog, trap Tab, restore on close.
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const node = dialogRef.current;
+    node?.querySelector<HTMLElement>("input, button")?.focus();
+    const onTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !node) return;
+      const items = Array.from(
+        node.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onTab);
+    return () => {
+      document.removeEventListener("keydown", onTab);
+      previous?.focus?.();
+    };
+  }, [open]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -120,6 +152,7 @@ export function NewsletterPopup({
       onClick={dismiss}
     >
       <div
+        ref={dialogRef}
         className="relative w-full max-w-lg bg-background text-ink border border-ink/10 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
@@ -166,7 +199,7 @@ export function NewsletterPopup({
               <div>
                 <label
                   htmlFor="nl-name"
-                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 mb-2"
+                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 mb-2"
                 >
                   Name
                 </label>
@@ -185,7 +218,7 @@ export function NewsletterPopup({
               <div>
                 <label
                   htmlFor="nl-email"
-                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 mb-2"
+                  className="block font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 mb-2"
                 >
                   Email Address
                 </label>
@@ -208,7 +241,7 @@ export function NewsletterPopup({
                 <button
                   type="button"
                   onClick={dismiss}
-                  className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/50 hover:text-ink"
+                  className="font-sans text-[10px] tracking-[0.24em] uppercase text-ink/70 hover:text-ink"
                 >
                   Not now
                 </button>
