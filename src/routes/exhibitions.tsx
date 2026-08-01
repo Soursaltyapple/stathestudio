@@ -77,7 +77,7 @@ function Row({
       <div
         className={
           "w-24 font-sans text-[10px] font-medium tracking-[0.24em] uppercase py-2 " +
-          (highlight ? "text-brand-blue" : "text-neutral-400")
+          (highlight ? "text-brand-blue" : "text-neutral-600")
         }
       >
         {year}
