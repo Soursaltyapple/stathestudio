@@ -12,6 +12,8 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { NewsletterPopup } from "@/components/newsletter-popup";
+import { themeBootstrapScript } from "@/lib/theme";
+
 
 function NotFoundComponent() {
   return (
