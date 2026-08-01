@@ -49,8 +49,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             className={
               "font-sans text-[10px] font-medium tracking-[0.16em] uppercase px-2.5 py-2 min-h-9 transition-colors " +
               (active
-                ? "bg-ink text-background"
-                : "text-ink hover:bg-brand-yellow")
+                ? "bg-brand-yellow text-ink font-semibold"
+                : "text-ink underline-offset-4 hover:underline")
             }
           >
             {t.short}
