@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Sun, Moon, Contrast } from "lucide-react";
 import {
   applyTheme,
   readStoredTheme,
@@ -6,6 +7,12 @@ import {
   THEME_STORAGE_KEY,
   type Theme,
 } from "@/lib/theme";
+
+const THEME_ICONS: Record<Theme, typeof Sun> = {
+  original: Sun,
+  dark: Moon,
+  contrast: Contrast,
+};
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const [theme, setTheme] = useState<Theme>("original");
@@ -25,7 +32,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     } catch {
       /* ignore */
     }
-    setAnnounce(`${THEMES.find((t) => t.value === next)?.short} theme enabled`);
+    setAnnounce(`${THEMES.find((t) => t.value === next)?.label} enabled`);
   }
 
   return (
@@ -39,21 +46,27 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     >
       {THEMES.map((t) => {
         const active = theme === t.value;
+        const Icon = THEME_ICONS[t.value];
         return (
           <button
             key={t.value}
             type="button"
             onClick={() => choose(t.value)}
             aria-pressed={active}
-            aria-label={t.label}
             className={
-              "font-sans text-[10px] font-medium tracking-[0.16em] uppercase px-2.5 py-2 min-h-9 transition-colors " +
+              "flex items-center justify-center p-1.5 min-h-7 min-w-7 transition-colors " +
               (active
-                ? "bg-brand-yellow text-ink font-semibold"
-                : "text-ink underline-offset-4 hover:underline")
+                ? "bg-brand-yellow text-ink"
+                : "text-ink/80 hover:bg-ink/10 hover:text-ink")
             }
           >
-            {t.short}
+            <span className="sr-only">{t.label}</span>
+            <Icon
+              aria-hidden="true"
+              focusable="false"
+              size={14}
+              strokeWidth={1.5}
+            />
           </button>
         );
       })}
