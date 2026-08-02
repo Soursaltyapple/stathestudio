@@ -57,7 +57,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
               "flex items-center justify-center p-1.5 min-h-8 min-w-8 transition-colors " +
               (active
                 ? "bg-brand-yellow text-ink"
-                : "text-ink/80 hover:bg-ink/10 hover:text-ink")
+                : "text-ink hover:bg-ink/10")
             }
           >
             <span className="sr-only">{t.label}</span>
