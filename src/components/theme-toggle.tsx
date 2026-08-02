@@ -54,7 +54,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             onClick={() => choose(t.value)}
             aria-pressed={active}
             className={
-              "flex items-center justify-center p-1.5 min-h-7 min-w-7 transition-colors " +
+              "flex items-center justify-center p-1.5 min-h-8 min-w-8 transition-colors " +
               (active
                 ? "bg-brand-yellow text-ink"
                 : "text-ink/80 hover:bg-ink/10 hover:text-ink")
@@ -64,7 +64,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             <Icon
               aria-hidden="true"
               focusable="false"
-              size={14}
+              size={16}
               strokeWidth={1.5}
             />
           </button>
