@@ -39,10 +39,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
     <div
       role="group"
       aria-label="Colour theme"
-      className={
-        "flex items-center gap-0.5 border border-ink/40 bg-background/90 p-0.5 backdrop-blur-sm " +
-        className
-      }
+      className={"flex items-center gap-1 " + className}
     >
       {THEMES.map((t) => {
         const active = theme === t.value;
@@ -54,10 +51,10 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
             onClick={() => choose(t.value)}
             aria-pressed={active}
             className={
-              "flex items-center justify-center p-1.5 min-h-8 min-w-8 transition-colors " +
+              "flex items-center justify-center w-8 h-8 transition-colors " +
               (active
                 ? "bg-brand-yellow text-ink"
-                : "text-ink hover:bg-ink/10")
+                : "text-current hover:bg-brand-yellow/20 hover:text-ink")
             }
           >
             <span className="sr-only">{t.label}</span>
@@ -75,4 +72,5 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       </span>
     </div>
   );
+
 }
