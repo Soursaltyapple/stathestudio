@@ -7,7 +7,7 @@ export function SiteNav({ invert = false }: { invert?: boolean }) {
       <div className="flex justify-between items-start gap-4">
         <div
           className={
-            "pointer-events-auto " +
+            "pointer-events-auto flex flex-col items-start gap-3 " +
             (invert ? "text-ink" : "mix-blend-difference text-white")
           }
         >
@@ -17,10 +17,10 @@ export function SiteNav({ invert = false }: { invert?: boolean }) {
           >
             Sta — Emoghene Augusta Ademi
           </Link>
+          <ThemeToggle />
         </div>
 
         <div className="flex flex-col items-end gap-3 pointer-events-auto">
-          <ThemeToggle />
           <nav
             aria-label="Main"
             className={
@@ -58,3 +58,4 @@ export function SiteNav({ invert = false }: { invert?: boolean }) {
     </header>
   );
 }
+
