@@ -9,6 +9,7 @@ export function WorkCard({
   offset = false,
   width,
   height,
+  thumbnailFit = "cover",
 }: {
   slug: string;
   src: string;
@@ -18,6 +19,7 @@ export function WorkCard({
   offset?: boolean;
   width: number;
   height: number;
+  thumbnailFit?: "cover" | "natural";
 }) {
   return (
     <Link
@@ -35,7 +37,12 @@ export function WorkCard({
           width={width}
           height={height}
           loading="lazy"
-          className="w-full h-auto aspect-[3/4] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className={
+            "w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03] " +
+            (thumbnailFit === "natural"
+              ? "object-contain"
+              : "aspect-[3/4] object-cover")
+          }
         />
       </div>
       <div className="flex justify-between items-baseline gap-4">
