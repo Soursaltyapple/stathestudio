@@ -23,6 +23,7 @@ export type Work = {
   description: string[];
   price?: string;
   availability?: "Available" | "Sold" | "On loan" | "Reserved" | "Not for sale";
+  thumbnailFit?: "cover" | "natural";
 };
 
 export const works: Work[] = [
@@ -62,6 +63,7 @@ export const works: Work[] = [
     image: theSelf,
     alt: "A reclining figure with a pot-like head against a landscape, framed in ornate gold",
     short: "Creative chi, reclining.",
+    thumbnailFit: "natural",
     description: [
       "This painting personifies the creative 'chi', the Igbo concept of personal divinity, as a reclining figure. It reclaims creativity as ancestral spiritual practice rather than elite commodity, challenging colonial frameworks that have severed art from its roots as a birthright accessible to all.",
       "This piece also visualizes rebellion and original thought and practice, in arts and beyond, as alluring and attractive.",
@@ -132,6 +134,7 @@ export const works: Work[] = [
     image: awakening,
     alt: "A figure curled inside an onion surrounded by discarded layers",
     short: "The cost of a survivable self.",
+    thumbnailFit: "natural",
     description: [
       "A figure sits curled within an onion surrounded by discarded layers, exploring the performance of identity as survival strategy. For many navigating hostile environments, authenticity is not safe.",
       "This painting asks: at what cost, and who gets the privilege of living without layers?",
