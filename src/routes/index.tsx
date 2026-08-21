@@ -104,6 +104,7 @@ function Home() {
               offset={i % 2 === 1}
               width={1200}
               height={1600}
+              thumbnailFit={w.thumbnailFit}
             />
           ))}
         </div>
