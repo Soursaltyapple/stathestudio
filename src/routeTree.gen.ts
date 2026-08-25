@@ -19,6 +19,7 @@ import { Route as WorksIndexRouteImport } from './routes/works.index'
 import { Route as ExhibitionsIndexRouteImport } from './routes/exhibitions.index'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as ExhibitionsSlugRouteImport } from './routes/exhibitions.$slug'
 import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
 
 const WorksRoute = WorksRouteImport.update({
@@ -71,6 +72,11 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const ExhibitionsSlugRoute = ExhibitionsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ExhibitionsRoute,
+} as any)
 const CommunitySlugRoute = CommunitySlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/exhibitions': typeof ExhibitionsRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
+  '/exhibitions/$slug': typeof ExhibitionsSlugRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/biography': typeof BiographyRoute
   '/contact': typeof ContactRoute
   '/community/$slug': typeof CommunitySlugRoute
+  '/exhibitions/$slug': typeof ExhibitionsSlugRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community': typeof CommunityIndexRoute
   '/exhibitions': typeof ExhibitionsIndexRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/exhibitions': typeof ExhibitionsRouteWithChildren
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
+  '/exhibitions/$slug': typeof ExhibitionsSlugRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/exhibitions'
     | '/works'
     | '/community/$slug'
+    | '/exhibitions/$slug'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
     | '/biography'
     | '/contact'
     | '/community/$slug'
+    | '/exhibitions/$slug'
     | '/works/$slug'
     | '/community'
     | '/exhibitions'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
     | '/exhibitions'
     | '/works'
     | '/community/$slug'
+    | '/exhibitions/$slug'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
@@ -234,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/exhibitions/$slug': {
+      id: '/exhibitions/$slug'
+      path: '/$slug'
+      fullPath: '/exhibitions/$slug'
+      preLoaderRoute: typeof ExhibitionsSlugRouteImport
+      parentRoute: typeof ExhibitionsRoute
+    }
     '/community/$slug': {
       id: '/community/$slug'
       path: '/$slug'
@@ -259,10 +278,12 @@ const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
 )
 
 interface ExhibitionsRouteChildren {
+  ExhibitionsSlugRoute: typeof ExhibitionsSlugRoute
   ExhibitionsIndexRoute: typeof ExhibitionsIndexRoute
 }
 
 const ExhibitionsRouteChildren: ExhibitionsRouteChildren = {
+  ExhibitionsSlugRoute: ExhibitionsSlugRoute,
   ExhibitionsIndexRoute: ExhibitionsIndexRoute,
 }
 

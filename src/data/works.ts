@@ -177,6 +177,7 @@ export const works: Work[] = [
     image: eyes,
     alt: "Close-up pencil drawing of a pair of open, unguarded eyes",
     short: "The moment before the lesson lands.",
+    thumbnailFit: "natural",
     description: [
       "This piece shows a pair of vulnerable, open, almost infatuated eyes caught in a moment of unguarded looking, staring in awe of something. There's an almost unsettling honesty in these eyes, radiating the kind of attention that belongs to people who still allow themselves to be fully affected by the world.",
       "The quiet vulnerability of someone who hasn't yet decided to look away. Society has a way of teaching us that openness is exposure — that to look at something with this much feeling is to make yourself available to be hurt by it. We learn to guard our eyes the same way we guard everything else.",
