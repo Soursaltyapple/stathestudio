@@ -21,8 +21,8 @@ export const events: Event[] = [
     org: "HUE CREATE",
     title: "Children's Day — Face Painting",
     role: "Volunteer face-painter",
-    year: "TBD",
-    date: "Children's Day (TBD)",
+    year: "To be announced",
+    date: "Children's Day — date to be announced",
     location: "Benin City, Nigeria",
     short:
       "Painted the faces of 100+ children — a slow afternoon of color, patience and small mirrors held up to small faces.",
@@ -38,9 +38,9 @@ export const events: Event[] = [
     org: "ARTERIA",
     title: "Volunteer Artist Programme",
     role: "Volunteer artist",
-    year: "TBD",
-    date: "TBD",
-    location: "TBD",
+    year: "To be announced",
+    date: "To be announced",
+    location: "To be announced",
     short:
       "Studio time and hands contributed to ARTERIA's ongoing volunteer artist programme — including a collaborative outdoor mural.",
     description: [
