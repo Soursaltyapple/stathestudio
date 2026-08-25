@@ -25,7 +25,7 @@ export type Exhibition = {
 export const exhibitions: Exhibition[] = [
   {
     slug: "rongo-artist-residency-open-studio",
-    year: "2025",
+    year: "2026",
     title: "Rongo Artist Residency Open Studio",
     venue: "Rongo Artist Residency",
     kind: "Group",
