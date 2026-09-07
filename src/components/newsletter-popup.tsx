@@ -122,10 +122,9 @@ export function NewsletterPopup({
         });
         if (!res.ok) throw new Error(`Request failed (${res.status})`);
       } else {
-        // Placeholder hookup — swap in your ESP webhook via the prop or env var.
-        console.info("[newsletter] subscribe:", {
-          name: trimmedName,
-          email: trimmedEmail,
+        // Default: secure server-side subscribe via the connected Brevo list.
+        await subscribeToNewsletter({
+          data: { name: trimmedName, email: trimmedEmail },
         });
       }
       setStatus("success");
