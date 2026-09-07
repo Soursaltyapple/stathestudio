@@ -178,7 +178,7 @@ export function NewsletterPopup({
 
         <div className="px-8 md:px-10 pt-12 pb-10">
           <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue">
-            Studio Letter
+            Studio Newsletter
           </span>
           <h2
             id="newsletter-title"
@@ -195,7 +195,7 @@ export function NewsletterPopup({
             <div className="mt-8 border-t border-ink/10 pt-6">
               <p className="font-serif italic text-2xl">Thank you.</p>
               <p className="font-sans text-sm text-ink/70 mt-2">
-                You're on the list. Look for the first letter soon.
+                You're on the list. Look for the first newsletter soon.
               </p>
               <button
                 type="button"
