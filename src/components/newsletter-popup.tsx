@@ -43,13 +43,24 @@ export function NewsletterPopup({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let dismissed = false;
     try {
-      if (window.localStorage.getItem(storageKey)) return;
+      dismissed = !!window.localStorage.getItem(storageKey);
     } catch {
       /* ignore */
     }
+    // Manual triggers (nav / footer buttons) always open the pop-up,
+    // even if it was auto-dismissed earlier in the session.
+    const openHandler = () => setOpen(true);
+    window.addEventListener("sta:open-newsletter", openHandler);
+    if (dismissed) {
+      return () => window.removeEventListener("sta:open-newsletter", openHandler);
+    }
     const t = window.setTimeout(() => setOpen(true), delayMs);
-    return () => window.clearTimeout(t);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("sta:open-newsletter", openHandler);
+    };
   }, [delayMs, storageKey]);
 
   useEffect(() => {
