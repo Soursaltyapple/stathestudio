@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { subscribeToNewsletter } from "@/lib/newsletter.functions";
 
 /**
  * NewsletterPopup
