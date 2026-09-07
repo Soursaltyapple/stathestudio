@@ -43,13 +43,24 @@ export function NewsletterPopup({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
+    let dismissed = false;
     try {
-      if (window.localStorage.getItem(storageKey)) return;
+      dismissed = !!window.localStorage.getItem(storageKey);
     } catch {
       /* ignore */
     }
+    // Manual triggers (nav / footer buttons) always open the pop-up,
+    // even if it was auto-dismissed earlier in the session.
+    const openHandler = () => setOpen(true);
+    window.addEventListener("sta:open-newsletter", openHandler);
+    if (dismissed) {
+      return () => window.removeEventListener("sta:open-newsletter", openHandler);
+    }
     const t = window.setTimeout(() => setOpen(true), delayMs);
-    return () => window.clearTimeout(t);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("sta:open-newsletter", openHandler);
+    };
   }, [delayMs, storageKey]);
 
   useEffect(() => {
@@ -167,7 +178,7 @@ export function NewsletterPopup({
 
         <div className="px-8 md:px-10 pt-12 pb-10">
           <span className="font-sans text-[10px] tracking-[0.24em] uppercase text-brand-blue">
-            Studio Letter
+            Studio Newsletter
           </span>
           <h2
             id="newsletter-title"
@@ -184,7 +195,7 @@ export function NewsletterPopup({
             <div className="mt-8 border-t border-ink/10 pt-6">
               <p className="font-serif italic text-2xl">Thank you.</p>
               <p className="font-sans text-sm text-ink/70 mt-2">
-                You're on the list. Look for the first letter soon.
+                You're on the list. Look for the first newsletter soon.
               </p>
               <button
                 type="button"

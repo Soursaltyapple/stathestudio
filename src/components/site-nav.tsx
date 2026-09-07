@@ -44,6 +44,15 @@ export function SiteNav(_props: { invert?: boolean } = {}) {
             <Link to="/contact" className="hover:text-brand-yellow transition-colors">
               Information
             </Link>
+            <button
+              type="button"
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("sta:open-newsletter"))
+              }
+              className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase hover:text-brand-yellow transition-colors cursor-pointer"
+            >
+              Subscribe
+            </button>
           </nav>
         </div>
       </div>

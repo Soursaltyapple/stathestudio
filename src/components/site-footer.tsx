@@ -27,6 +27,15 @@ export function SiteFooter() {
               stathestudio@gmail.com
             </a>
           </p>
+          <button
+            type="button"
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent("sta:open-newsletter"))
+            }
+            className="font-sans text-sm leading-relaxed text-white/80 hover:text-brand-yellow underline underline-offset-4 decoration-white/30 hover:decoration-brand-yellow transition-colors cursor-pointer"
+          >
+            Subscribe to our Newsletter
+          </button>
         </div>
 
         <div className="max-w-xs space-y-4">
