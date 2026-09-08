@@ -91,6 +91,25 @@ function Bio() {
       </section>
 
       <section className="px-6 md:px-10 py-16">
+        <section className="border-y border-ink/10 py-12" aria-labelledby="about-the-artist">
+          <span className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-brand-blue">
+            About the Artist
+          </span>
+          <h2
+            id="about-the-artist"
+            className="font-serif italic text-4xl md:text-6xl leading-[0.95] mt-5 max-w-4xl"
+          >
+            Sta the Studio — paintings from a vivid inner world.
+          </h2>
+          <p className="font-sans text-base leading-relaxed mt-6 max-w-3xl">
+            Sta, also known as Stathestar, star the star, Emoghene Augusta Ademi,
+            Augusta Ademi, and Sta Art Studio, is a Nigerian visual artist based
+            in Benin City. Through surreal, faceless and colorful acrylic
+            paintings, Sta the Studio turns emotional experience into collective
+            witness.
+          </p>
+        </section>
+
         <Section label="(01) Bio">
           <p>
             Sta (Ademi Emoghene Augusta) is a visual artist based in Benin
