@@ -1,5 +1,5 @@
-- [ ] Update core SEO title and description, including social metadata
-- [ ] Add an artist-name About the Artist block without changing the existing visual direction
-- [ ] Standardize every artwork image alt attribute to the requested exact format
-- [ ] Add sitemap.xml and robots.txt for public pages
-- [ ] Validate the app and generated SEO files
+- [x] Update core SEO title and description, including social metadata
+- [x] Add an artist-name About the Artist block without changing the existing visual direction
+- [x] Standardize every artwork image alt attribute to the requested exact format
+- [x] Add sitemap.xml and robots.txt for public pages
+- [x] Validate the app and generated SEO files
