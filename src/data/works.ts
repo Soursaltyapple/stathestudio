@@ -26,6 +26,10 @@ export type Work = {
   thumbnailFit?: "cover" | "natural";
 };
 
+export function getArtworkAlt(title: string) {
+  return `Surreal faceless acrylic painting titled ${title} by African artist Sta (Emoghene Augusta Ademi)`;
+}
+
 export const works: Work[] = [
   {
     slug: "ladi-kwali",
@@ -34,7 +38,7 @@ export const works: Work[] = [
     medium: "Acrylic on canvas",
     dimensions: "41cm × 86cm",
     image: ladiKwali,
-    alt: "Painting of Ladi Kwali and another artist working at a table",
+    alt: getArtworkAlt("Ladi Kwali"),
     short: "Two women, two eras, one table.",
     description: [
       "Two figures share a table, working in silence. On the left, Ladi Kwali grinds clay, her image drawn from the twenty naira note, where she remains one of the only artists and the only woman ever honored on Nigerian currency. Her pottery carried Nigerian craft onto the global stage, work born from repetition and skill rather than institution. On the right, the artist works pigment drawn from Benin City earth, seated in the same light, at the same table, absorbed in her own hands.",
@@ -48,7 +52,7 @@ export const works: Work[] = [
     medium: "Acrylic on canvas — Hungry series",
     dimensions: "64cm × 88cm",
     image: notHungry,
-    alt: "A figure sitting at a table with a feast, facing the ocean",
+    alt: getArtworkAlt("Not Hungry"),
     short: "A feast that cannot answer the hunger.",
     description: [
       "A figure sits before an abundant feast yet remains consumed by hunger that food cannot satisfy. This painting explores the crisis of invisible suffering, the mental and emotional starvation that exists even in the presence of material comfort, challenging the assumption that physical provision equals wellbeing.",
@@ -61,7 +65,7 @@ export const works: Work[] = [
     medium: "Acrylic on canvas",
     dimensions: "41cm × 86cm",
     image: theSelf,
-    alt: "A reclining figure with a pot-like head against a landscape, framed in ornate gold",
+    alt: getArtworkAlt("The Self"),
     short: "Creative chi, reclining.",
     thumbnailFit: "natural",
     description: [
@@ -76,7 +80,7 @@ export const works: Work[] = [
     medium: "Acrylic paint on wood",
     dimensions: "29cm × 23cm",
     image: isItCoolToWorry,
-    alt: "Two cloud-headed figures sit on a bench with flowers in the foreground",
+    alt: getArtworkAlt("Is It Cool to Worry?"),
     short: "Small hands holding a whole community upright.",
     description: [
       "Two figures sit together as one seeks reassurance from the other. This painting documents the informal mental health support that exists in communities where professional care is inaccessible — the emotional labor performed daily by mothers, grandmothers, and friends who serve as the only available infrastructure for collective wellbeing.",
@@ -90,7 +94,7 @@ export const works: Work[] = [
     medium: "Acrylic on canvas — large format remake of Awakening (2024)",
     dimensions: "97cm × 122cm",
     image: awakening2,
-    alt: "A figure nestled inside the layers of a red onion",
+    alt: getArtworkAlt("Awakening (second edition)"),
     short: "Necessary isolation, beginning to unfurl.",
     description: [
       "A figure nestles within the layers of a red onion, exploring what I call 'necessary isolation' — the protective withdrawal that many experience not as choice but as self-preservation in environments that feel unsafe or incapable of holding their authentic selves. The slightly opened layers suggest that transcendence is possible even while the need for boundaries remains.",
@@ -104,7 +108,7 @@ export const works: Work[] = [
     medium: "Acrylic on canvas",
     dimensions: "29cm × 23cm",
     image: elonia,
-    alt: "A figure in a can, a glowing ethereal figure, and symbolic elements in a landscape",
+    alt: getArtworkAlt("Elonia"),
     short: "The freedom people can no longer accept.",
     description: [
       "This piece explores the psychology of systemic entrapment, what happens when people have been confined so long by poverty, trauma, or oppression that they cannot accept freedom even when offered.",
@@ -118,7 +122,7 @@ export const works: Work[] = [
     medium: "Acrylic paint on paper",
     dimensions: "29cm × 42cm",
     image: spoonsAndForks,
-    alt: "Five elongated hands standing as utensils in a glass container",
+    alt: getArtworkAlt("Spoons and Forks"),
     short: "Our own spoons and forks.",
     description: [
       "Five elongated hands stand as utensils in a glass container, a sardonic response to cultural colonialism that demonizes POC practices while commodifying POC aesthetics. This work confronts the hypocrisy of systems that prefer 'POC art' over POC people, collecting our culture while excluding our living, actual selves.",
@@ -132,7 +136,7 @@ export const works: Work[] = [
     medium: "Acrylic on paper",
     dimensions: "42cm × 29cm",
     image: awakening,
-    alt: "A figure curled inside an onion surrounded by discarded layers",
+    alt: getArtworkAlt("Awakening"),
     short: "The cost of a survivable self.",
     thumbnailFit: "natural",
     description: [
@@ -147,7 +151,7 @@ export const works: Work[] = [
     medium: "Pencil on paper",
     dimensions: "23cm × 23cm",
     image: selfPortrait1,
-    alt: "Pencil drawing of a child's face with hair in knots and sunglasses",
+    alt: getArtworkAlt("Self Portrait 1"),
     short: "Looking back at a child who did not know yet.",
     description: [
       "A child's face, eyes wide with curiosity and innocence, unaware of the danger present in the moment this image captures. This self-portrait, recreated from a childhood photograph, explores the temporal rupture of trauma: the moment when harm occurs and the decades spent recovering from it.",
@@ -162,7 +166,7 @@ export const works: Work[] = [
     medium: "Digital: oil paint, pencil, charcoal, chalk",
     dimensions: "23cm × 23cm",
     image: selfPortrait2,
-    alt: "Digital self-portrait against a blue water-like background",
+    alt: getArtworkAlt("Self Portrait 2 (opens camera)"),
     short: "The face the front-facing camera keeps finding.",
     description: [
       "Inspired by the accidental activation of phone cameras, this piece reflects on distorted self-perception and digital discomfort. It captures that raw, distorted glimpse of self we rarely intend to see.",
@@ -175,7 +179,7 @@ export const works: Work[] = [
     medium: "Pencil on paper",
     dimensions: "42cm × 14cm",
     image: eyes,
-    alt: "Close-up pencil drawing of a pair of open, unguarded eyes",
+    alt: getArtworkAlt("Eyes"),
     short: "The moment before the lesson lands.",
     thumbnailFit: "natural",
     description: [

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { getWork, works, type Work } from "@/data/works";
+import { getArtworkAlt, getWork, works, type Work } from "@/data/works";
 
 export const Route = createFileRoute("/works/$slug")({
   loader: ({ params }) => {
@@ -142,7 +142,7 @@ function WorkDetail() {
               <img
                 key={i}
                 src={src}
-                alt={`${work.title} — view ${i + 2}`}
+                alt={getArtworkAlt(work.title)}
                 loading="lazy"
                 className="w-full h-auto object-cover bg-neutral-50 outline outline-1 -outline-offset-1 outline-black/5"
               />

@@ -80,11 +80,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sta — Emoghene Augusta Ademi, Visual Artist" },
+      {
+        title:
+          "Sta the Studio | Surreal African Art & Acrylic Paintings by Sta",
+      },
       {
         name: "description",
         content:
-          "Studio of Sta (Ademi Emoghene Augusta). Surreal, emotionally charged paintings — acrylic on canvas, wood and paper. Based in Benin City, Nigeria.",
+          "Faceless, vivid, and colorful acrylic artwork by Nigerian visual artist Emoghene Augusta Ademi (Sta) in Benin City.",
+      },
+      {
+        property: "og:title",
+        content:
+          "Sta the Studio | Surreal African Art & Acrylic Paintings by Sta",
+      },
+      {
+        property: "og:description",
+        content:
+          "Faceless, vivid, and colorful acrylic artwork by Nigerian visual artist Emoghene Augusta Ademi (Sta) in Benin City.",
       },
       { property: "og:site_name", content: "Sta — Emoghene Augusta Ademi" },
       { property: "og:type", content: "website" },

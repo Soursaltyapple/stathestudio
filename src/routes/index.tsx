@@ -9,20 +9,24 @@ import { works } from "@/data/works";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sta — Emoghene Augusta Ademi, Visual Artist" },
+      {
+        title:
+          "Sta the Studio | Surreal African Art & Acrylic Paintings by Sta",
+      },
       {
         name: "description",
         content:
-          "Sta (Ademi Emoghene Augusta) is a visual artist based in Benin City, Nigeria. Surreal, emotionally charged paintings of faceless figures — emotional documentation as collective witness.",
+          "Faceless, vivid, and colorful acrylic artwork by Nigerian visual artist Emoghene Augusta Ademi (Sta) in Benin City.",
       },
       {
         property: "og:title",
-        content: "Sta — Emoghene Augusta Ademi, Visual Artist",
+        content:
+          "Sta the Studio | Surreal African Art & Acrylic Paintings by Sta",
       },
       {
         property: "og:description",
         content:
-          "Selected works, exhibitions and studio inquiries. Currently developing the Hungry series.",
+          "Faceless, vivid, and colorful acrylic artwork by Nigerian visual artist Emoghene Augusta Ademi (Sta) in Benin City.",
       },
       { property: "og:url", content: "/" },
     ],
