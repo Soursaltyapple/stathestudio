@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ExhibitionsRouteImport } from './routes/exhibitions'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
@@ -25,6 +26,11 @@ import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
   path: '/works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExhibitionsRoute = ExhibitionsRouteImport.update({
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/biography': typeof BiographyRoute
   '/contact': typeof ContactRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
   '/works/$slug': typeof WorksSlugRoute
@@ -115,6 +123,7 @@ export interface FileRoutesById {
   '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/exhibitions'
+    | '/sitemap.xml'
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
     | '/'
     | '/biography'
     | '/contact'
+    | '/sitemap.xml'
     | '/community/$slug'
     | '/exhibitions/$slug'
     | '/works/$slug'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/exhibitions'
+    | '/sitemap.xml'
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
@@ -171,6 +183,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRouteWithChildren
   ContactRoute: typeof ContactRoute
   ExhibitionsRoute: typeof ExhibitionsRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorksRoute: typeof WorksRouteWithChildren
 }
 
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/works'
       fullPath: '/works'
       preLoaderRoute: typeof WorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exhibitions': {
@@ -309,6 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRouteWithChildren,
   ContactRoute: ContactRoute,
   ExhibitionsRoute: ExhibitionsRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorksRoute: WorksRouteWithChildren,
 }
 export const routeTree = rootRouteImport
