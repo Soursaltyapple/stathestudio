@@ -133,6 +133,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <div id="snipcart" data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY" hidden />
         <Scripts />
       </body>
     </html>
