@@ -24,7 +24,6 @@ const artworkProducts = works.map((work, index) => ({
   image: work.image,
   alt: work.alt,
   thumbnailFit: work.thumbnailFit,
-  detailPath: `/works/${work.slug}` as const,
 }));
 
 function ArtworkProductCard({
@@ -37,7 +36,8 @@ function ArtworkProductCard({
   return (
     <article className="group flex min-w-0 flex-col">
       <Link
-        to={product.detailPath}
+        to="/works/$slug"
+        params={{ slug: product.id }}
         className="block min-w-0 cursor-pointer overflow-hidden bg-neutral-50 outline outline-1 -outline-offset-1 outline-black/5 transition-shadow duration-500 hover:shadow-2xl"
         aria-label={`View ${product.title} details`}
       >
