@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { ShoppingBag } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteNav(_props: { invert?: boolean } = {}) {
@@ -55,15 +54,6 @@ export function SiteNav(_props: { invert?: boolean } = {}) {
               Subscribe
             </button>
           </nav>
-          <button
-            type="button"
-            aria-label="Open shopping bag"
-            title="Open shopping bag"
-            className="snipcart-checkout relative flex h-8 w-8 items-center justify-center text-current transition-colors hover:text-brand-yellow"
-          >
-            <ShoppingBag aria-hidden="true" focusable="false" size={17} strokeWidth={1.5} />
-            <span className="snipcart-items-count absolute -right-1 -top-1 min-w-4 text-center font-sans text-[9px] leading-4 text-brand-yellow" />
-          </button>
         </div>
       </div>
     </header>
