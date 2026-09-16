@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { WorkCard } from "@/components/work-card";
-import { works } from "@/data/works";
+import { ArtworkStorefront } from "@/components/artwork-storefront";
 
 export const Route = createFileRoute("/works/")({
   head: () => ({
@@ -44,22 +43,7 @@ function WorksIndex() {
       </section>
 
       <section className="px-6 md:px-10 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          {works.map((w, i) => (
-            <WorkCard
-              key={w.slug}
-              slug={w.slug}
-              src={w.image}
-              alt={w.alt}
-              title={w.title}
-              meta={`${w.year} · ${w.medium.split("—")[0].trim()}`}
-              offset={i % 2 === 1}
-              width={1200}
-              height={1600}
-              thumbnailFit={w.thumbnailFit}
-            />
-          ))}
-        </div>
+        <ArtworkStorefront />
       </section>
 
       <SiteFooter />
