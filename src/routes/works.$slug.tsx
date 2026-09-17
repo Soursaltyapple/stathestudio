@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { getArtworkAlt, getWork, works, type Work } from "@/data/works";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/works/$slug")({
   loader: ({ params }) => {
@@ -117,12 +118,19 @@ function WorkDetail() {
           </div>
 
           <div className="mt-10 pt-6 border-t border-ink/10">
-            <a
-              href="mailto:stathestudio@gmail.com?subject=Inquiry — {work.title}"
-              className="font-sans text-[11px] tracking-[0.24em] uppercase border-b border-ink pb-1 hover:text-brand-blue hover:border-brand-blue transition-colors"
-            >
-              Inquire about this work →
-            </a>
+             <div className="flex flex-wrap items-center gap-5">
+               <Button asChild className="rounded-none bg-brand-yellow font-sans text-[11px] uppercase tracking-[0.2em] text-ink hover:bg-brand-blue hover:text-white">
+                 <Link to="/shop/product/$id" params={{ id: `artwork-${work.slug}` }}>
+                   Acquire Artwork ↗
+                 </Link>
+               </Button>
+               <a
+                 href={`mailto:stathestudio@gmail.com?subject=Inquiry — ${work.title}`}
+                 className="font-sans text-[11px] tracking-[0.24em] uppercase border-b border-ink pb-1 hover:text-brand-blue hover:border-brand-blue transition-colors"
+               >
+                 Inquire about this work →
+               </a>
+             </div>
           </div>
         </div>
       </section>

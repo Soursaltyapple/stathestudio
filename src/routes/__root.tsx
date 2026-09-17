@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { NewsletterPopup } from "@/components/newsletter-popup";
 import { themeBootstrapScript } from "@/lib/theme";
 
+const snipcartApiKey = import.meta.env.VITE_SNIPCART_API_KEY ?? "";
 
 function NotFoundComponent() {
   return (
@@ -116,6 +117,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap",
       },
+      {
+        rel: "stylesheet",
+        href: "https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css",
+      },
+    ],
+    scripts: [
+      {
+        src: "https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js",
+        async: true,
+        "data-api-key": snipcartApiKey,
+        "data-config-modal-style": "side",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -154,6 +167,7 @@ function RootComponent() {
       <main id="main-content">
         <Outlet />
       </main>
+      <div hidden id="snipcart" data-api-key={snipcartApiKey} />
       <NewsletterPopup />
     </QueryClientProvider>
   );
