@@ -11,17 +11,21 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorksRouteImport } from './routes/works'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ExhibitionsRouteImport } from './routes/exhibitions'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as BiographyRouteImport } from './routes/biography'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as WorksIndexRouteImport } from './routes/works.index'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
 import { Route as ExhibitionsIndexRouteImport } from './routes/exhibitions.index'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as ShopInfoRouteImport } from './routes/shop.info'
 import { Route as ExhibitionsSlugRouteImport } from './routes/exhibitions.$slug'
 import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
+import { Route as ShopProductIdRouteImport } from './routes/shop.product.$id'
 
 const WorksRoute = WorksRouteImport.update({
   id: '/works',
@@ -31,6 +35,11 @@ const WorksRoute = WorksRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExhibitionsRoute = ExhibitionsRouteImport.update({
@@ -63,6 +72,11 @@ const WorksIndexRoute = WorksIndexRouteImport.update({
   path: '/',
   getParentRoute: () => WorksRoute,
 } as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShopRoute,
+} as any)
 const ExhibitionsIndexRoute = ExhibitionsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -78,6 +92,11 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const ShopInfoRoute = ShopInfoRouteImport.update({
+  id: '/info',
+  path: '/info',
+  getParentRoute: () => ShopRoute,
+} as any)
 const ExhibitionsSlugRoute = ExhibitionsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -88,6 +107,11 @@ const CommunitySlugRoute = CommunitySlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CommunityRoute,
 } as any)
+const ShopProductIdRoute = ShopProductIdRouteImport.update({
+  id: '/product/$id',
+  path: '/product/$id',
+  getParentRoute: () => ShopRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -95,14 +119,18 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRouteWithChildren
+  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/info': typeof ShopInfoRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
+  '/shop/': typeof ShopIndexRoute
   '/works/': typeof WorksIndexRoute
+  '/shop/product/$id': typeof ShopProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -111,10 +139,13 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/info': typeof ShopInfoRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community': typeof CommunityIndexRoute
   '/exhibitions': typeof ExhibitionsIndexRoute
+  '/shop': typeof ShopIndexRoute
   '/works': typeof WorksIndexRoute
+  '/shop/product/$id': typeof ShopProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -123,14 +154,18 @@ export interface FileRoutesById {
   '/community': typeof CommunityRouteWithChildren
   '/contact': typeof ContactRoute
   '/exhibitions': typeof ExhibitionsRouteWithChildren
+  '/shop': typeof ShopRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/info': typeof ShopInfoRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
+  '/shop/': typeof ShopIndexRoute
   '/works/': typeof WorksIndexRoute
+  '/shop/product/$id': typeof ShopProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -140,14 +175,18 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/exhibitions'
+    | '/shop'
     | '/sitemap.xml'
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/info'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
+    | '/shop/'
     | '/works/'
+    | '/shop/product/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -156,10 +195,13 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/info'
     | '/works/$slug'
     | '/community'
     | '/exhibitions'
+    | '/shop'
     | '/works'
+    | '/shop/product/$id'
   id:
     | '__root__'
     | '/'
@@ -167,14 +209,18 @@ export interface FileRouteTypes {
     | '/community'
     | '/contact'
     | '/exhibitions'
+    | '/shop'
     | '/sitemap.xml'
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/info'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
+    | '/shop/'
     | '/works/'
+    | '/shop/product/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -183,6 +229,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRouteWithChildren
   ContactRoute: typeof ContactRoute
   ExhibitionsRoute: typeof ExhibitionsRouteWithChildren
+  ShopRoute: typeof ShopRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorksRoute: typeof WorksRouteWithChildren
 }
@@ -201,6 +248,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exhibitions': {
@@ -245,6 +299,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksIndexRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/shop/': {
+      id: '/shop/'
+      path: '/'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
     '/exhibitions/': {
       id: '/exhibitions/'
       path: '/'
@@ -266,6 +327,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/shop/info': {
+      id: '/shop/info'
+      path: '/info'
+      fullPath: '/shop/info'
+      preLoaderRoute: typeof ShopInfoRouteImport
+      parentRoute: typeof ShopRoute
+    }
     '/exhibitions/$slug': {
       id: '/exhibitions/$slug'
       path: '/$slug'
@@ -279,6 +347,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/community/$slug'
       preLoaderRoute: typeof CommunitySlugRouteImport
       parentRoute: typeof CommunityRoute
+    }
+    '/shop/product/$id': {
+      id: '/shop/product/$id'
+      path: '/product/$id'
+      fullPath: '/shop/product/$id'
+      preLoaderRoute: typeof ShopProductIdRouteImport
+      parentRoute: typeof ShopRoute
     }
   }
 }
@@ -311,6 +386,20 @@ const ExhibitionsRouteWithChildren = ExhibitionsRoute._addFileChildren(
   ExhibitionsRouteChildren,
 )
 
+interface ShopRouteChildren {
+  ShopInfoRoute: typeof ShopInfoRoute
+  ShopIndexRoute: typeof ShopIndexRoute
+  ShopProductIdRoute: typeof ShopProductIdRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopInfoRoute: ShopInfoRoute,
+  ShopIndexRoute: ShopIndexRoute,
+  ShopProductIdRoute: ShopProductIdRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
+
 interface WorksRouteChildren {
   WorksSlugRoute: typeof WorksSlugRoute
   WorksIndexRoute: typeof WorksIndexRoute
@@ -329,6 +418,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRouteWithChildren,
   ContactRoute: ContactRoute,
   ExhibitionsRoute: ExhibitionsRouteWithChildren,
+  ShopRoute: ShopRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorksRoute: WorksRouteWithChildren,
 }
