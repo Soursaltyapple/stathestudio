@@ -44,6 +44,12 @@ export function SiteNav(_props: { invert?: boolean } = {}) {
             <Link to="/contact" className="hover:text-brand-yellow transition-colors">
               Information
             </Link>
+            <Link
+              to="/shop"
+              className="mt-2 border border-brand-yellow bg-brand-yellow px-3 py-2 font-display text-[11px] font-extrabold tracking-[0.2em] text-ink transition-transform hover:-translate-x-1 hover:bg-background hover:text-brand-yellow"
+            >
+              Shop ↗
+            </Link>
             <button
               type="button"
               onClick={() =>
