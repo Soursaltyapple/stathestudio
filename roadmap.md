@@ -3,3 +3,4 @@
 - [x] Standardize every artwork image alt attribute to the requested exact format
 - [x] Add sitemap.xml and robots.txt for public pages
 - [x] Validate the app and generated SEO files
+- [ ] Add premium shop storefront, Snipcart structure, product pages, and portfolio acquisition links
