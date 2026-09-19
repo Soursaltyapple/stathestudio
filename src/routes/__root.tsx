@@ -122,14 +122,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css",
       },
     ],
-    scripts: [
-      {
-        src: "https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js",
-        async: true,
-        "data-api-key": snipcartApiKey,
-        "data-config-modal-style": "side",
-      },
-    ],
+    scripts: snipcartApiKey
+      ? [
+          {
+            src: "https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js",
+            async: true,
+            "data-api-key": snipcartApiKey,
+            "data-config-modal-style": "side",
+          },
+        ]
+      : [],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -167,7 +169,7 @@ function RootComponent() {
       <main id="main-content">
         <Outlet />
       </main>
-      <div hidden id="snipcart" data-api-key={snipcartApiKey} />
+      {snipcartApiKey ? <div hidden id="snipcart" data-api-key={snipcartApiKey} /> : null}
       <NewsletterPopup />
     </QueryClientProvider>
   );
