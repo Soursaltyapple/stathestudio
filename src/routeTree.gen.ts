@@ -22,7 +22,10 @@ import { Route as ShopIndexRouteImport } from './routes/shop.index'
 import { Route as ExhibitionsIndexRouteImport } from './routes/exhibitions.index'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as WorksSlugRouteImport } from './routes/works.$slug'
+import { Route as ShopTermsRouteImport } from './routes/shop.terms'
+import { Route as ShopReturnsRouteImport } from './routes/shop.returns'
 import { Route as ShopInfoRouteImport } from './routes/shop.info'
+import { Route as ShopFaqRouteImport } from './routes/shop.faq'
 import { Route as ExhibitionsSlugRouteImport } from './routes/exhibitions.$slug'
 import { Route as CommunitySlugRouteImport } from './routes/community.$slug'
 import { Route as ShopProductIdRouteImport } from './routes/shop.product.$id'
@@ -92,9 +95,24 @@ const WorksSlugRoute = WorksSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WorksRoute,
 } as any)
+const ShopTermsRoute = ShopTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopReturnsRoute = ShopReturnsRouteImport.update({
+  id: '/returns',
+  path: '/returns',
+  getParentRoute: () => ShopRoute,
+} as any)
 const ShopInfoRoute = ShopInfoRouteImport.update({
   id: '/info',
   path: '/info',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopFaqRoute = ShopFaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => ShopRoute,
 } as any)
 const ExhibitionsSlugRoute = ExhibitionsSlugRouteImport.update({
@@ -124,7 +142,10 @@ export interface FileRoutesByFullPath {
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/faq': typeof ShopFaqRoute
   '/shop/info': typeof ShopInfoRoute
+  '/shop/returns': typeof ShopReturnsRoute
+  '/shop/terms': typeof ShopTermsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
@@ -139,7 +160,10 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/faq': typeof ShopFaqRoute
   '/shop/info': typeof ShopInfoRoute
+  '/shop/returns': typeof ShopReturnsRoute
+  '/shop/terms': typeof ShopTermsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community': typeof CommunityIndexRoute
   '/exhibitions': typeof ExhibitionsIndexRoute
@@ -159,7 +183,10 @@ export interface FileRoutesById {
   '/works': typeof WorksRouteWithChildren
   '/community/$slug': typeof CommunitySlugRoute
   '/exhibitions/$slug': typeof ExhibitionsSlugRoute
+  '/shop/faq': typeof ShopFaqRoute
   '/shop/info': typeof ShopInfoRoute
+  '/shop/returns': typeof ShopReturnsRoute
+  '/shop/terms': typeof ShopTermsRoute
   '/works/$slug': typeof WorksSlugRoute
   '/community/': typeof CommunityIndexRoute
   '/exhibitions/': typeof ExhibitionsIndexRoute
@@ -180,7 +207,10 @@ export interface FileRouteTypes {
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/faq'
     | '/shop/info'
+    | '/shop/returns'
+    | '/shop/terms'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
@@ -195,7 +225,10 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/faq'
     | '/shop/info'
+    | '/shop/returns'
+    | '/shop/terms'
     | '/works/$slug'
     | '/community'
     | '/exhibitions'
@@ -214,7 +247,10 @@ export interface FileRouteTypes {
     | '/works'
     | '/community/$slug'
     | '/exhibitions/$slug'
+    | '/shop/faq'
     | '/shop/info'
+    | '/shop/returns'
+    | '/shop/terms'
     | '/works/$slug'
     | '/community/'
     | '/exhibitions/'
@@ -327,11 +363,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorksSlugRouteImport
       parentRoute: typeof WorksRoute
     }
+    '/shop/terms': {
+      id: '/shop/terms'
+      path: '/terms'
+      fullPath: '/shop/terms'
+      preLoaderRoute: typeof ShopTermsRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/returns': {
+      id: '/shop/returns'
+      path: '/returns'
+      fullPath: '/shop/returns'
+      preLoaderRoute: typeof ShopReturnsRouteImport
+      parentRoute: typeof ShopRoute
+    }
     '/shop/info': {
       id: '/shop/info'
       path: '/info'
       fullPath: '/shop/info'
       preLoaderRoute: typeof ShopInfoRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/faq': {
+      id: '/shop/faq'
+      path: '/faq'
+      fullPath: '/shop/faq'
+      preLoaderRoute: typeof ShopFaqRouteImport
       parentRoute: typeof ShopRoute
     }
     '/exhibitions/$slug': {
@@ -387,13 +444,19 @@ const ExhibitionsRouteWithChildren = ExhibitionsRoute._addFileChildren(
 )
 
 interface ShopRouteChildren {
+  ShopFaqRoute: typeof ShopFaqRoute
   ShopInfoRoute: typeof ShopInfoRoute
+  ShopReturnsRoute: typeof ShopReturnsRoute
+  ShopTermsRoute: typeof ShopTermsRoute
   ShopIndexRoute: typeof ShopIndexRoute
   ShopProductIdRoute: typeof ShopProductIdRoute
 }
 
 const ShopRouteChildren: ShopRouteChildren = {
+  ShopFaqRoute: ShopFaqRoute,
   ShopInfoRoute: ShopInfoRoute,
+  ShopReturnsRoute: ShopReturnsRoute,
+  ShopTermsRoute: ShopTermsRoute,
   ShopIndexRoute: ShopIndexRoute,
   ShopProductIdRoute: ShopProductIdRoute,
 }
