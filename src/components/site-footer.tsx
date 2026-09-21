@@ -1,4 +1,5 @@
 import weDirectoryLogo from "@/assets/wedirectory-logo.svg";
+import { Link } from "@tanstack/react-router";
 
 export function SiteFooter() {
   return (
@@ -40,6 +41,17 @@ export function SiteFooter() {
 
         <div className="max-w-xs space-y-4">
           <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/70">
+            Studio information
+          </div>
+          <nav aria-label="Studio information" className="flex flex-col gap-2 font-sans text-sm leading-relaxed text-white/80">
+            <Link to="/shop/terms" className="hover:text-brand-yellow">Terms of Service</Link>
+            <Link to="/shop/returns" className="hover:text-brand-yellow">Refund Policy</Link>
+            <Link to="/shop/faq" className="hover:text-brand-yellow">FAQ</Link>
+          </nav>
+        </div>
+
+        <div className="max-w-xs space-y-4">
+          <div className="font-sans text-[10px] font-medium tracking-[0.24em] uppercase text-white/70">
             Elsewhere
           </div>
           <ul className="font-sans text-sm leading-relaxed text-white/80 space-y-1">
@@ -51,6 +63,16 @@ export function SiteFooter() {
                 className="hover:text-brand-yellow"
               >
                 Instagram · @staisart_studio
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/sta_the_star/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-brand-yellow"
+              >
+                Artist · @sta_the_star
               </a>
             </li>
           </ul>
