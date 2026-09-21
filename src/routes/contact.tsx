@@ -90,6 +90,17 @@ function Contact() {
               @staisart_studio
             </a>
           </p>
+          <p>
+            <span className="mr-2 text-ink/60">Artist</span>
+            <a
+              href="https://www.instagram.com/sta_the_star/"
+              target="_blank"
+              rel="noreferrer"
+              className="underline decoration-brand-blue underline-offset-4 hover:text-brand-blue"
+            >
+              @sta_the_star
+            </a>
+          </p>
         </Block>
 
         <Block label="(03) Inquiries" title="Send a message">

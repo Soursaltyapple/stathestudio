@@ -4,3 +4,4 @@
 - [x] Add sitemap.xml and robots.txt for public pages
 - [x] Validate the app and generated SEO files
 - [ ] Add premium shop storefront, Snipcart structure, product pages, and portfolio acquisition links
+- [ ] Apply site-wide navigation, footer, social, shop header, and product-action updates from the navigation brief

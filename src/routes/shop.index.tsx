@@ -3,9 +3,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowDownRight, ArrowLeft, ArrowRight } from "lucide-react";
 
 import { ShopFooter } from "@/components/shop-footer";
-import { SiteNav } from "@/components/site-nav";
+import { ShopNav } from "@/components/shop-nav";
 import {
-  formatShopPrice,
   shopCategories,
   shopProducts,
   type ShopCategory,
@@ -37,13 +36,13 @@ function ShopHome() {
   const [slide, setSlide] = useState(0);
   const [category, setCategory] = useState<ShopCategory | "All">("All");
   const slides = [
-    { eyebrow: "Original works", title: "Take the feeling home.", image: shopProducts[1].image },
-    { eyebrow: "Studio editions", title: "Made for the walls between worlds.", image: shopProducts[0].image },
+    { eyebrow: "Original works", title: "Take the feeling home.", image: shopProducts[0].image },
+    { eyebrow: "Studio editions", title: "Made for the walls between worlds.", image: shopProducts[2].image },
     { eyebrow: "Small objects", title: "A piece of the practice, held close.", image: shopProducts[shopProducts.length - 1].image },
   ];
 
   useEffect(() => {
-    const timer = window.setInterval(() => setSlide((current) => (current + 1) % slides.length), 6000);
+    const timer = window.setInterval(() => setSlide((current) => (current + 1) % slides.length), 3500);
     return () => window.clearInterval(timer);
   }, [slides.length]);
 
@@ -53,7 +52,7 @@ function ShopHome() {
 
   return (
     <div className="min-h-screen bg-background text-ink">
-      <SiteNav invert />
+      <ShopNav />
       <section className="relative min-h-[620px] overflow-hidden bg-ink text-white md:min-h-[720px]">
         {slides.map((currentSlide, index) => (
           <div

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { ShopFooter } from "@/components/shop-footer";
-import { SiteNav } from "@/components/site-nav";
+import { ShopNav } from "@/components/shop-nav";
 
 export const Route = createFileRoute("/shop/faq")({
   head: () => ({
@@ -30,7 +30,7 @@ function ShopFaqPage() {
 function ShopInfoShell({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-ink">
-      <SiteNav invert />
+      <ShopNav />
       <section className="px-6 pb-24 pt-40 md:px-10">
         <Link to="/shop" className="font-sans text-[10px] uppercase tracking-[0.24em] text-ink/60 hover:text-brand-blue">
           ← Sta Shop
